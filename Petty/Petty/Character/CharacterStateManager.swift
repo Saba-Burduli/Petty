@@ -8,14 +8,15 @@ final class CharacterStateManager: ObservableObject {
 
     private var previousNonDraggingState: CharacterState = .idle
     private var pokeResetTask: Task<Void, Never>?
+    private var stateChangedAt = Date()
 
     func update(idleSeconds: TimeInterval) {
         guard state != .dragging, state != .poked else { return }
 
         let nextState: CharacterState
-        if idleSeconds < 2 {
+        if idleSeconds < 1.4 {
             nextState = .active
-        } else if idleSeconds > 12 {
+        } else if idleSeconds > 18 {
             nextState = .bored
         } else {
             nextState = .idle
@@ -28,7 +29,7 @@ final class CharacterStateManager: ObservableObject {
         if state != .dragging {
             previousNonDraggingState = state
         }
-        state = .dragging
+        setState(.dragging)
     }
 
     func updateDragSpeed(pointsPerSecond: CGFloat) {
@@ -37,13 +38,13 @@ final class CharacterStateManager: ObservableObject {
 
     func endDragging() {
         dragSpeed = 0
-        state = previousNonDraggingState
+        setState(previousNonDraggingState)
     }
 
     func poke() {
         guard state != .dragging else { return }
         previousNonDraggingState = state == .poked ? previousNonDraggingState : state
-        state = .poked
+        setState(.poked)
 
         pokeResetTask?.cancel()
         pokeResetTask = Task { [weak self] in
@@ -51,13 +52,38 @@ final class CharacterStateManager: ObservableObject {
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 guard let self, self.state == .poked else { return }
-                self.state = self.previousNonDraggingState
+                self.setState(self.previousNonDraggingState)
             }
         }
     }
 
     private func setNonDraggingState(_ nextState: CharacterState) {
-        state = nextState
+        guard shouldTransition(to: nextState) else { return }
+        setState(nextState)
         previousNonDraggingState = nextState
+    }
+
+    private func shouldTransition(to nextState: CharacterState) -> Bool {
+        guard nextState != state else { return false }
+
+        let elapsed = Date().timeIntervalSince(stateChangedAt)
+        switch (state, nextState) {
+        case (.active, .idle):
+            return elapsed > 2.2
+        case (.idle, .active):
+            return elapsed > 0.6
+        case (.idle, .bored):
+            return elapsed > 4
+        case (.bored, .idle), (.bored, .active):
+            return true
+        default:
+            return elapsed > 1
+        }
+    }
+
+    private func setState(_ nextState: CharacterState) {
+        guard state != nextState else { return }
+        state = nextState
+        stateChangedAt = Date()
     }
 }

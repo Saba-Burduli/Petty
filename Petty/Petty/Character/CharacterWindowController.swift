@@ -5,7 +5,7 @@ import SwiftUI
 final class CharacterWindowController: NSObject {
     private let stateManager: CharacterStateManager
     private let settingsStore: SettingsStore
-    private let panelSize = NSSize(width: 150, height: 160)
+    private let panelSize = NSSize(width: 220, height: 220)
     private var panel: NSPanel?
     private var cancellables = Set<AnyCancellable>()
 

@@ -14,24 +14,23 @@ struct CharacterView: View {
     }
 
     var body: some View {
-        VStack(spacing: 4) {
-            characterImage
-                .frame(width: 150, height: 142)
-                .scaleEffect(x: scale + dragStretch, y: scale - dragSquash)
-                .rotationEffect(.degrees(dragRotation))
-                .offset(y: yOffset)
-                .animation(.easeInOut(duration: animationDuration).repeatForever(autoreverses: true), value: state)
-                .animation(.interactiveSpring(response: 0.18, dampingFraction: 0.58), value: stateManager.dragSpeed)
+        TimelineView(.animation(minimumInterval: 1.0 / 30.0)) { timeline in
+            let motion = motion(at: timeline.date.timeIntervalSinceReferenceDate)
 
-            Text(label)
-                .font(.system(size: 12, weight: .semibold, design: .rounded))
-                .foregroundStyle(.white)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 4)
-                .background(.black.opacity(0.48), in: Capsule())
+            characterImage
+                .frame(width: 190, height: 190)
+                .scaleEffect(
+                    x: motion.xScale + dragStretch,
+                    y: motion.yScale - dragSquash,
+                    anchor: .bottom
+                )
+                .rotationEffect(.degrees(motion.rotation + dragRotation), anchor: .bottom)
+                .offset(x: motion.xOffset, y: motion.yOffset)
+                .animation(.easeInOut(duration: 0.22), value: state)
+                .animation(.interactiveSpring(response: 0.16, dampingFraction: 0.55), value: stateManager.dragSpeed)
         }
-        .padding(8)
-        .frame(width: 170, height: 180)
+        .padding(10)
+        .frame(width: 220, height: 220)
         .scaleEffect(settingsStore.characterScale)
         .contentShape(Rectangle())
     }
@@ -56,40 +55,51 @@ struct CharacterView: View {
         }
     }
 
-    private var label: String {
+    private func motion(at time: TimeInterval) -> CharacterMotion {
         switch state {
-        case .idle: asset.displayName
-        case .active: "\(asset.displayName) shuffles"
-        case .bored: "\(asset.displayName) sleepy"
-        case .dragging: "Dragged"
-        case .poked: "Poked"
-        }
-    }
-
-    private var scale: CGFloat {
-        switch state {
-        case .active: 1.04
-        case .dragging: 1.02
-        case .poked: 1.08
-        case .bored: 0.96
-        case .idle: 1.0
-        }
-    }
-
-    private var yOffset: CGFloat {
-        switch state {
-        case .active: -8
-        case .bored: 7
-        case .dragging: -2
-        case .poked: -11
-        case .idle: 0
-        }
-    }
-
-    private var animationDuration: Double {
-        switch state {
-        case .active, .poked: 0.35
-        default: 1.6
+        case .idle:
+            let breath = sin(time * 2.2)
+            return CharacterMotion(
+                xScale: 1.0 + breath * 0.018,
+                yScale: 1.0 - breath * 0.012,
+                yOffset: breath * -2,
+                rotation: sin(time * 0.9) * 1.4
+            )
+        case .active:
+            let bounce = abs(sin(time * 7.5))
+            return CharacterMotion(
+                xScale: 1.02 + bounce * 0.035,
+                yScale: 0.98 - bounce * 0.02,
+                xOffset: sin(time * 11) * 4,
+                yOffset: -6 - bounce * 10,
+                rotation: sin(time * 10) * 5
+            )
+        case .bored:
+            let sleepy = sin(time * 1.15)
+            return CharacterMotion(
+                xScale: 0.98 + sleepy * 0.006,
+                yScale: 0.94 - sleepy * 0.006,
+                yOffset: 13 + sleepy * 2,
+                rotation: -5 + sleepy * 1.2
+            )
+        case .dragging:
+            let speed = Double(stateManager.dragSpeed)
+            let wobble = sin(time * (8 + speed * 16))
+            return CharacterMotion(
+                xScale: 1.0 + speed * 0.04,
+                yScale: 1.0 - speed * 0.03,
+                xOffset: CGFloat(wobble * speed * 5),
+                yOffset: -3,
+                rotation: wobble * speed * 7
+            )
+        case .poked:
+            let flinch = abs(sin(time * 14))
+            return CharacterMotion(
+                xScale: 1.08 + flinch * 0.04,
+                yScale: 0.93 - flinch * 0.02,
+                yOffset: -8 - flinch * 8,
+                rotation: sin(time * 18) * 5
+            )
         }
     }
 
@@ -102,8 +112,16 @@ struct CharacterView: View {
     }
 
     private var dragRotation: Double {
-        state == .dragging ? Double(stateManager.dragSpeed * 20) : 0
+        state == .dragging ? Double(stateManager.dragSpeed * 18) : 0
     }
+}
+
+private struct CharacterMotion {
+    var xScale: CGFloat = 1
+    var yScale: CGFloat = 1
+    var xOffset: CGFloat = 0
+    var yOffset: CGFloat = 0
+    var rotation: Double = 0
 }
 
 enum CharacterImageLoader {
