@@ -5,9 +5,12 @@ Petty can support Rive assets. The Xcode project already references the official
 ## Current State
 
 - The in-app Character Store is live with bundled generated PNG character frames.
+- The Xcode project resolves and links `RiveRuntime`.
+- Petty can render a bundled `.riv` file in the desktop character window.
+- The current `.riv` file is a runtime proof asset, not the final original Petty zombie rig.
 - Character selection, size, always-on-top, show/hide, and reset position are persisted.
 - Dragging already drives animation intensity through velocity.
-- No `.riv` file is rendered yet because full Xcode is not available in this environment.
+- A `.riv` file is rendered now. The next step is replacing the proof asset with an original Petty zombie rig.
 
 ## Rive Runtime
 
@@ -31,12 +34,10 @@ https://rive.app/community/files/1298-2487-animated-icon-set-1-color/
 
 ## Recommended Next Implementation Step
 
-1. Install/select full Xcode.
-2. Resolve the existing `https://github.com/rive-app/rive-ios` package dependency.
-3. Add a `Resources/Rive/` group copied into the app bundle.
-4. Import a licensed `.riv` file.
-5. Create `RiveCharacterView` behind the same character-store model.
-6. Map Petty states to Rive state-machine inputs:
+1. Author or import an original Petty zombie `.riv` rig.
+2. Add it to the app bundle.
+3. Replace the runtime proof asset.
+4. Map Petty states to Rive state-machine inputs:
    - idle
    - active
    - bored
@@ -44,4 +45,4 @@ https://rive.app/community/files/1298-2487-animated-icon-set-1-color/
    - poked
    - drag speed
 
-This keeps the app running today while leaving a clean path to real Rive-rendered characters.
+This keeps the app running today while leaving a clean path to the final Rive-rigged Petty character.
