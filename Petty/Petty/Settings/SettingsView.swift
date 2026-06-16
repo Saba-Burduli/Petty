@@ -16,7 +16,7 @@ struct SettingsView: View {
                 Text("Character Store")
                     .font(.headline)
 
-                Text("Built-in assets are selectable now. Rive assets should be imported after the Rive Apple runtime is added through Swift Package Manager.")
+                Text("Bundled character frames are rendered directly in the desktop pet. Rive can still be added later if we need vector state machines.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
@@ -113,43 +113,18 @@ private struct MiniCharacterPreview: View {
     let asset: CharacterAsset
 
     var body: some View {
-        ZStack {
-            previewBody
-                .frame(width: 76, height: 76)
-
-            HStack(spacing: 14) {
-                Capsule().fill(.white).frame(width: 8, height: 15)
-                Capsule().fill(.white).frame(width: 8, height: 15)
+        ZStack(alignment: .center) {
+            if let image = CharacterImageLoader.image(named: "zed_idle", characterFolder: asset.resourceFolder) {
+                Image(nsImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 90, height: 92)
+            } else {
+                Text("Missing")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.secondary)
             }
-            .offset(y: 4)
         }
         .frame(height: 92)
-    }
-
-    private var previewBody: some View {
-        ZStack {
-            switch asset.shape {
-            case .round:
-                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .fill(fillGradient)
-                    .overlay(RoundedRectangle(cornerRadius: 24, style: .continuous).stroke(.white.opacity(0.65), lineWidth: 2))
-            case .capsule:
-                Capsule()
-                    .fill(fillGradient)
-                    .overlay(Capsule().stroke(.white.opacity(0.65), lineWidth: 2))
-            case .star:
-                StarShape()
-                    .fill(fillGradient)
-                    .overlay(StarShape().stroke(.white.opacity(0.65), lineWidth: 2))
-            }
-        }
-    }
-
-    private var fillGradient: LinearGradient {
-        LinearGradient(
-            colors: [asset.primaryColor, asset.secondaryColor],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
     }
 }

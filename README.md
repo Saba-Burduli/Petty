@@ -7,9 +7,10 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The fir
 - Transparent, borderless character window.
 - Floating always-on-top mode.
 - Menu bar controls for show, hide, reset position, always-on-top, and quit.
-- Store & Settings window with selectable built-in character assets.
+- Store & Settings window with the bundled Zed character asset.
 - Drag-to-move behavior.
 - Drag-speed-reactive animation.
+- Generated transparent PNG frame rendering for idle, active, bored, poked, slow drag, and fast drag states.
 - Saved and restored character position.
 - Basic states: idle, active, bored, and dragging.
 - Privacy-safe activity detection using coarse idle time only.
@@ -33,8 +34,8 @@ xcodebuild -project Petty/Petty.xcodeproj -scheme Petty -configuration Debug bui
 
 ## Current Limitations
 
-- Petty is a SwiftUI placeholder shape, not final character art.
-- Rive files are not rendered yet; see `docs/RIVE_ASSET_PIPELINE.md`.
+- The current character is generated concept art, not a final polished production asset.
+- Rive files are not required for the current renderer; see `docs/RIVE_ASSET_PIPELINE.md` for the optional future path.
 - No remote marketplace, backend, accounts, payments, telemetry, AI chat, or cloud sync.
 - Fullscreen and Spaces behavior may vary by macOS version and user window settings.
 - Activity detection is intentionally coarse and does not inspect typed text or app content.

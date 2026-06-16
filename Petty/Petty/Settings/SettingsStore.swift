@@ -31,7 +31,8 @@ final class SettingsStore: ObservableObject {
             Key.characterScale: 1.0
         ])
         alwaysOnTop = defaults.bool(forKey: Key.alwaysOnTop)
-        selectedCharacterID = defaults.string(forKey: Key.selectedCharacterID) ?? CharacterCatalog.assets[0].id
+        let savedCharacterID = defaults.string(forKey: Key.selectedCharacterID) ?? CharacterCatalog.assets[0].id
+        selectedCharacterID = CharacterCatalog.assets.contains { $0.id == savedCharacterID } ? savedCharacterID : CharacterCatalog.assets[0].id
         characterScale = defaults.double(forKey: Key.characterScale)
         if characterScale == 0 {
             characterScale = 1.0

@@ -35,7 +35,7 @@ Petty is a native macOS desktop companion app. The first character, Petty, is a 
 - `PettyApp.swift`: SwiftUI app entry point and app delegate bridge.
 - `AppDelegate.swift`: app lifecycle and controller wiring.
 - `CharacterWindowController.swift`: transparent floating panel creation, positioning, drag handling, and visibility.
-- `CharacterView.swift`: original SwiftUI placeholder character.
+- `CharacterView.swift`: renders bundled transparent PNG character frames.
 - `CharacterState.swift`: state enum.
 - `CharacterStateManager.swift`: simple activity and dragging state transitions.
 - `ActivityMonitor.swift`: privacy-safe system idle polling.

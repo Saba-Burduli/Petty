@@ -4,10 +4,10 @@ Petty can support Rive assets, but the runtime should be added as a focused depe
 
 ## Current State
 
-- The in-app Character Store is live with built-in native SwiftUI assets.
+- The in-app Character Store is live with bundled generated PNG character frames.
 - Character selection, size, always-on-top, show/hide, and reset position are persisted.
 - Dragging already drives animation intensity through velocity.
-- No `.riv` file is rendered yet.
+- No `.riv` file is rendered yet because the current renderer does not need Rive.
 
 ## Rive Runtime
 
