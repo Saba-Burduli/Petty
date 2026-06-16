@@ -5,4 +5,5 @@ enum CharacterState: String, CaseIterable {
     case active
     case bored
     case dragging
+    case poked
 }

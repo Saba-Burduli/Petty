@@ -76,6 +76,9 @@ final class CharacterWindowController: NSObject {
                     self?.saveCurrentPosition()
                     self?.stateManager.endDragging()
                 }
+            },
+            onClick: { [weak self] in
+                Task { @MainActor in self?.stateManager.poke() }
             }
         )
         view.frame = NSRect(origin: .zero, size: panelSize)
@@ -129,19 +132,22 @@ final class CharacterWindowController: NSObject {
 private final class DraggableHostingView<Content: View>: NSHostingView<Content> {
     private let onDragBegan: () -> Void
     private let onDragEnded: () -> Void
+    private let onClick: () -> Void
     private var dragStartMouseLocation: NSPoint?
     private var dragStartWindowOrigin: NSPoint?
     private var hasStartedDrag = false
 
-    init(rootView: Content, onDragBegan: @escaping () -> Void, onDragEnded: @escaping () -> Void) {
+    init(rootView: Content, onDragBegan: @escaping () -> Void, onDragEnded: @escaping () -> Void, onClick: @escaping () -> Void) {
         self.onDragBegan = onDragBegan
         self.onDragEnded = onDragEnded
+        self.onClick = onClick
         super.init(rootView: rootView)
     }
 
     required init(rootView: Content) {
         self.onDragBegan = {}
         self.onDragEnded = {}
+        self.onClick = {}
         super.init(rootView: rootView)
     }
 
@@ -178,6 +184,8 @@ private final class DraggableHostingView<Content: View>: NSHostingView<Content> 
         dragStartWindowOrigin = nil
         if hasStartedDrag {
             onDragEnded()
+        } else {
+            onClick()
         }
         hasStartedDrag = false
     }

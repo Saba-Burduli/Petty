@@ -88,6 +88,9 @@ struct CharacterView: View {
                 path.addQuadCurve(to: CGPoint(x: 29, y: 14), control: CGPoint(x: 17, y: 2))
             case .dragging:
                 path.addEllipse(in: CGRect(x: 10, y: 3, width: 14, height: 14))
+            case .poked:
+                path.move(to: CGPoint(x: 5, y: 8))
+                path.addLine(to: CGPoint(x: 29, y: 8))
             case .idle:
                 path.move(to: CGPoint(x: 6, y: 8))
                 path.addQuadCurve(to: CGPoint(x: 28, y: 8), control: CGPoint(x: 17, y: 16))
@@ -101,6 +104,7 @@ struct CharacterView: View {
         case .active: "Repz reps"
         case .bored: "Repz bored"
         case .dragging: "Whoa"
+        case .poked: "Boop"
         }
     }
 
@@ -108,6 +112,7 @@ struct CharacterView: View {
         switch state {
         case .active: 1.06
         case .dragging: 1.02
+        case .poked: 1.12
         case .bored: 0.96
         case .idle: 1.0
         }
@@ -118,11 +123,15 @@ struct CharacterView: View {
         case .active: -6
         case .bored: 6
         case .dragging: -2
+        case .poked: -10
         case .idle: 0
         }
     }
 
     private var animationDuration: Double {
-        state == .active ? 0.35 : 1.6
+        switch state {
+        case .active, .poked: 0.35
+        default: 1.6
+        }
     }
 }
