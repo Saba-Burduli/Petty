@@ -4,6 +4,7 @@ import Foundation
 @MainActor
 final class CharacterStateManager: ObservableObject {
     @Published private(set) var state: CharacterState = .idle
+    @Published private(set) var dragSpeed: CGFloat = 0
 
     private var previousNonDraggingState: CharacterState = .idle
     private var pokeResetTask: Task<Void, Never>?
@@ -30,7 +31,12 @@ final class CharacterStateManager: ObservableObject {
         state = .dragging
     }
 
+    func updateDragSpeed(pointsPerSecond: CGFloat) {
+        dragSpeed = min(max(pointsPerSecond / 1800, 0), 1)
+    }
+
     func endDragging() {
+        dragSpeed = 0
         state = previousNonDraggingState
     }
 

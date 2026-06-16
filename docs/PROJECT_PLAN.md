@@ -2,11 +2,12 @@
 
 ## Product Summary
 
-Petty is a native macOS desktop companion app. The first character, Repz, is a tiny original productivity gym creature that lives in a transparent floating desktop window and reacts to basic user activity.
+Petty is a native macOS desktop companion app. The first character, Petty, is a tiny original productivity gym creature that lives in a transparent floating desktop window and reacts to basic user activity.
 
 ## MVP Scope
 
 - Show one original placeholder character on the desktop.
+- Provide a local Character Store for switching built-in character assets.
 - Use a transparent, borderless native macOS window.
 - Let the character float above normal windows when enabled.
 - Allow direct dragging and save the last position.
@@ -40,6 +41,8 @@ Petty is a native macOS desktop companion app. The first character, Repz, is a t
 - `ActivityMonitor.swift`: privacy-safe system idle polling.
 - `MenuBarController.swift`: native menu bar controls.
 - `SettingsStore.swift`: persisted settings.
+- `SettingsView.swift`: in-app Store & Settings window.
+- `CharacterAsset.swift`: local character catalog.
 
 ## Edge Cases
 

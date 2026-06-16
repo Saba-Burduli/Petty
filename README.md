@@ -1,13 +1,15 @@
 # Petty
 
-Petty is a native macOS prototype for a tiny animated desktop companion. The first placeholder character is Repz, an original productivity gym creature that reacts while the user works.
+Petty is a native macOS prototype for a tiny animated desktop companion. The first placeholder character is Petty, an original productivity gym creature that reacts while the user works.
 
 ## Current Prototype Features
 
 - Transparent, borderless character window.
 - Floating always-on-top mode.
 - Menu bar controls for show, hide, reset position, always-on-top, and quit.
+- Store & Settings window with selectable built-in character assets.
 - Drag-to-move behavior.
+- Drag-speed-reactive animation.
 - Saved and restored character position.
 - Basic states: idle, active, bored, and dragging.
 - Privacy-safe activity detection using coarse idle time only.
@@ -31,9 +33,9 @@ xcodebuild -project Petty/Petty.xcodeproj -scheme Petty -configuration Debug bui
 
 ## Current Limitations
 
-- Repz is a SwiftUI placeholder shape, not final character art.
-- No settings window yet.
-- No store, backend, accounts, payments, telemetry, AI chat, or cloud sync.
+- Petty is a SwiftUI placeholder shape, not final character art.
+- Rive files are not rendered yet; see `docs/RIVE_ASSET_PIPELINE.md`.
+- No remote marketplace, backend, accounts, payments, telemetry, AI chat, or cloud sync.
 - Fullscreen and Spaces behavior may vary by macOS version and user window settings.
 - Activity detection is intentionally coarse and does not inspect typed text or app content.
 

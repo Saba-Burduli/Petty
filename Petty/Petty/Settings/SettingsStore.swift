@@ -1,17 +1,41 @@
 import AppKit
 
-final class SettingsStore {
+final class SettingsStore: ObservableObject {
     private enum Key {
         static let characterOriginX = "characterOriginX"
         static let characterOriginY = "characterOriginY"
         static let alwaysOnTop = "alwaysOnTop"
+        static let selectedCharacterID = "selectedCharacterID"
+        static let characterScale = "characterScale"
     }
 
     private let defaults: UserDefaults
 
+    @Published var alwaysOnTop: Bool {
+        didSet { defaults.set(alwaysOnTop, forKey: Key.alwaysOnTop) }
+    }
+
+    @Published var selectedCharacterID: String {
+        didSet { defaults.set(selectedCharacterID, forKey: Key.selectedCharacterID) }
+    }
+
+    @Published var characterScale: Double {
+        didSet { defaults.set(characterScale, forKey: Key.characterScale) }
+    }
+
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        defaults.register(defaults: [Key.alwaysOnTop: true])
+        defaults.register(defaults: [
+            Key.alwaysOnTop: true,
+            Key.selectedCharacterID: CharacterCatalog.assets[0].id,
+            Key.characterScale: 1.0
+        ])
+        alwaysOnTop = defaults.bool(forKey: Key.alwaysOnTop)
+        selectedCharacterID = defaults.string(forKey: Key.selectedCharacterID) ?? CharacterCatalog.assets[0].id
+        characterScale = defaults.double(forKey: Key.characterScale)
+        if characterScale == 0 {
+            characterScale = 1.0
+        }
     }
 
     var characterOrigin: NSPoint? {
@@ -36,8 +60,4 @@ final class SettingsStore {
         }
     }
 
-    var alwaysOnTop: Bool {
-        get { defaults.bool(forKey: Key.alwaysOnTop) }
-        set { defaults.set(newValue, forKey: Key.alwaysOnTop) }
-    }
 }

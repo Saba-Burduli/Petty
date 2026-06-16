@@ -16,6 +16,9 @@
 		1A0000072D10000000000001 /* ActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000172D10000000000001 /* ActivityMonitor.swift */; };
 		1A0000082D10000000000001 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000182D10000000000001 /* MenuBarController.swift */; };
 		1A0000092D10000000000001 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000192D10000000000001 /* SettingsStore.swift */; };
+		1A00000A2D10000000000001 /* CharacterAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001B2D10000000000001 /* CharacterAsset.swift */; };
+		1A00000B2D10000000000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001C2D10000000000001 /* SettingsView.swift */; };
+		1A00000C2D10000000000001 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001D2D10000000000001 /* SettingsWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		1A0000182D10000000000001 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		1A0000192D10000000000001 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		1A00001A2D10000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A00001B2D10000000000001 /* CharacterAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAsset.swift; sourceTree = "<group>"; };
+		1A00001C2D10000000000001 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1A00001D2D10000000000001 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0000132D10000000000001 /* CharacterState.swift */,
+				1A00001B2D10000000000001 /* CharacterAsset.swift */,
 				1A0000142D10000000000001 /* CharacterStateManager.swift */,
 				1A0000152D10000000000001 /* CharacterView.swift */,
 				1A0000162D10000000000001 /* CharacterWindowController.swift */,
@@ -104,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				1A0000192D10000000000001 /* SettingsStore.swift */,
+				1A00001C2D10000000000001 /* SettingsView.swift */,
+				1A00001D2D10000000000001 /* SettingsWindowController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -185,6 +194,9 @@
 				1A0000072D10000000000001 /* ActivityMonitor.swift in Sources */,
 				1A0000082D10000000000001 /* MenuBarController.swift in Sources */,
 				1A0000092D10000000000001 /* SettingsStore.swift in Sources */,
+				1A00000A2D10000000000001 /* CharacterAsset.swift in Sources */,
+				1A00000B2D10000000000001 /* SettingsView.swift in Sources */,
+				1A00000C2D10000000000001 /* SettingsWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

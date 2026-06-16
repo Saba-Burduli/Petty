@@ -2,9 +2,14 @@ import SwiftUI
 
 struct CharacterView: View {
     @ObservedObject var stateManager: CharacterStateManager
+    @ObservedObject var settingsStore: SettingsStore
 
     private var state: CharacterState {
         stateManager.state
+    }
+
+    private var asset: CharacterAsset {
+        CharacterCatalog.asset(id: settingsStore.selectedCharacterID)
     }
 
     var body: some View {
@@ -15,9 +20,11 @@ struct CharacterView: View {
                 headband
             }
             .frame(width: 116, height: 116)
-            .scaleEffect(scale)
+            .scaleEffect(x: scale + dragStretch, y: scale - dragSquash)
+            .rotationEffect(.degrees(dragRotation))
             .offset(y: yOffset)
             .animation(.easeInOut(duration: animationDuration).repeatForever(autoreverses: true), value: state)
+            .animation(.interactiveSpring(response: 0.18, dampingFraction: 0.58), value: stateManager.dragSpeed)
 
             Text(label)
                 .font(.system(size: 12, weight: .semibold, design: .rounded))
@@ -28,29 +35,42 @@ struct CharacterView: View {
         }
         .padding(8)
         .frame(width: 150, height: 160)
+        .scaleEffect(settingsStore.characterScale)
         .contentShape(Rectangle())
     }
 
     private var bodyShape: some View {
-        RoundedRectangle(cornerRadius: 34, style: .continuous)
-            .fill(
-                LinearGradient(
-                    colors: [Color(red: 0.18, green: 0.74, blue: 0.55), Color(red: 0.07, green: 0.38, blue: 0.34)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
-            .overlay(
+        ZStack {
+            switch asset.shape {
+            case .round:
                 RoundedRectangle(cornerRadius: 34, style: .continuous)
-                    .stroke(.white.opacity(0.55), lineWidth: 3)
-            )
-            .shadow(color: .black.opacity(0.22), radius: 12, x: 0, y: 8)
+                    .fill(fillGradient)
+                    .overlay(RoundedRectangle(cornerRadius: 34, style: .continuous).stroke(.white.opacity(0.55), lineWidth: 3))
+            case .capsule:
+                Capsule()
+                    .fill(fillGradient)
+                    .overlay(Capsule().stroke(.white.opacity(0.55), lineWidth: 3))
+            case .star:
+                StarShape()
+                    .fill(fillGradient)
+                    .overlay(StarShape().stroke(.white.opacity(0.55), lineWidth: 3))
+            }
+        }
+        .shadow(color: .black.opacity(0.22), radius: 12, x: 0, y: 8)
+    }
+
+    private var fillGradient: LinearGradient {
+        LinearGradient(
+            colors: [asset.primaryColor, asset.secondaryColor],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
     }
 
     private var headband: some View {
         VStack {
             RoundedRectangle(cornerRadius: 5)
-                .fill(Color(red: 0.96, green: 0.31, blue: 0.25))
+                .fill(asset.accentColor)
                 .frame(width: 76, height: 12)
                 .offset(y: 18)
             Spacer()
@@ -100,9 +120,9 @@ struct CharacterView: View {
 
     private var label: String {
         switch state {
-        case .idle: "Repz"
-        case .active: "Repz reps"
-        case .bored: "Repz bored"
+        case .idle: asset.displayName
+        case .active: "\(asset.displayName) moves"
+        case .bored: "\(asset.displayName) bored"
         case .dragging: "Whoa"
         case .poked: "Boop"
         }
@@ -133,5 +153,44 @@ struct CharacterView: View {
         case .active, .poked: 0.35
         default: 1.6
         }
+    }
+
+    private var dragStretch: CGFloat {
+        state == .dragging ? stateManager.dragSpeed * 0.22 : 0
+    }
+
+    private var dragSquash: CGFloat {
+        state == .dragging ? stateManager.dragSpeed * 0.12 : 0
+    }
+
+    private var dragRotation: Double {
+        state == .dragging ? Double(stateManager.dragSpeed * 18) : 0
+    }
+}
+
+struct StarShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        let center = CGPoint(x: rect.midX, y: rect.midY)
+        let outerRadius = min(rect.width, rect.height) / 2
+        let innerRadius = outerRadius * 0.58
+        var path = Path()
+
+        for index in 0..<10 {
+            let radius = index.isMultiple(of: 2) ? outerRadius : innerRadius
+            let angle = CGFloat(index) * .pi / 5 - .pi / 2
+            let point = CGPoint(
+                x: center.x + cos(angle) * radius,
+                y: center.y + sin(angle) * radius
+            )
+
+            if index == 0 {
+                path.move(to: point)
+            } else {
+                path.addLine(to: point)
+            }
+        }
+
+        path.closeSubpath()
+        return path
     }
 }

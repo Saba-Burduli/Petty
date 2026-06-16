@@ -1,4 +1,5 @@
 import AppKit
+import Combine
 import SwiftUI
 
 final class CharacterWindowController: NSObject {
@@ -6,12 +7,14 @@ final class CharacterWindowController: NSObject {
     private let settingsStore: SettingsStore
     private let panelSize = NSSize(width: 150, height: 160)
     private var panel: NSPanel?
+    private var cancellables = Set<AnyCancellable>()
 
     init(stateManager: CharacterStateManager, settingsStore: SettingsStore) {
         self.stateManager = stateManager
         self.settingsStore = settingsStore
         super.init()
         createPanel()
+        observeSettings()
     }
 
     var isVisible: Bool {
@@ -66,9 +69,12 @@ final class CharacterWindowController: NSObject {
         panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
 
         let view = DraggableHostingView(
-            rootView: CharacterView(stateManager: stateManager),
+            rootView: CharacterView(stateManager: stateManager, settingsStore: settingsStore),
             onDragBegan: { [weak self] in
                 Task { @MainActor in self?.stateManager.beginDragging() }
+            },
+            onDragChanged: { [weak self] pointsPerSecond in
+                Task { @MainActor in self?.stateManager.updateDragSpeed(pointsPerSecond: pointsPerSecond) }
             },
             onDragEnded: { [weak self] in
                 Task { @MainActor in
@@ -90,6 +96,15 @@ final class CharacterWindowController: NSObject {
 
     private func applyWindowLevel() {
         panel?.level = alwaysOnTop ? .floating : .normal
+    }
+
+    private func observeSettings() {
+        settingsStore.$alwaysOnTop
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.applyWindowLevel()
+            }
+            .store(in: &cancellables)
     }
 
     private func ensureVisibleFrame() {
@@ -131,14 +146,18 @@ final class CharacterWindowController: NSObject {
 
 private final class DraggableHostingView<Content: View>: NSHostingView<Content> {
     private let onDragBegan: () -> Void
+    private let onDragChanged: (CGFloat) -> Void
     private let onDragEnded: () -> Void
     private let onClick: () -> Void
     private var dragStartMouseLocation: NSPoint?
     private var dragStartWindowOrigin: NSPoint?
+    private var previousDragMouseLocation: NSPoint?
+    private var previousDragTime: TimeInterval?
     private var hasStartedDrag = false
 
-    init(rootView: Content, onDragBegan: @escaping () -> Void, onDragEnded: @escaping () -> Void, onClick: @escaping () -> Void) {
+    init(rootView: Content, onDragBegan: @escaping () -> Void, onDragChanged: @escaping (CGFloat) -> Void, onDragEnded: @escaping () -> Void, onClick: @escaping () -> Void) {
         self.onDragBegan = onDragBegan
+        self.onDragChanged = onDragChanged
         self.onDragEnded = onDragEnded
         self.onClick = onClick
         super.init(rootView: rootView)
@@ -146,6 +165,7 @@ private final class DraggableHostingView<Content: View>: NSHostingView<Content> 
 
     required init(rootView: Content) {
         self.onDragBegan = {}
+        self.onDragChanged = { _ in }
         self.onDragEnded = {}
         self.onClick = {}
         super.init(rootView: rootView)
@@ -158,6 +178,8 @@ private final class DraggableHostingView<Content: View>: NSHostingView<Content> 
     override func mouseDown(with event: NSEvent) {
         dragStartMouseLocation = NSEvent.mouseLocation
         dragStartWindowOrigin = window?.frame.origin
+        previousDragMouseLocation = dragStartMouseLocation
+        previousDragTime = event.timestamp
         hasStartedDrag = false
     }
 
@@ -172,6 +194,14 @@ private final class DraggableHostingView<Content: View>: NSHostingView<Content> 
         }
 
         let currentMouse = NSEvent.mouseLocation
+        if let previousMouse = previousDragMouseLocation, let previousTime = previousDragTime {
+            let elapsed = max(event.timestamp - previousTime, 0.001)
+            let distance = hypot(currentMouse.x - previousMouse.x, currentMouse.y - previousMouse.y)
+            onDragChanged(distance / elapsed)
+        }
+        previousDragMouseLocation = currentMouse
+        previousDragTime = event.timestamp
+
         let nextOrigin = NSPoint(
             x: startOrigin.x + currentMouse.x - startMouse.x,
             y: startOrigin.y + currentMouse.y - startMouse.y
@@ -182,6 +212,8 @@ private final class DraggableHostingView<Content: View>: NSHostingView<Content> 
     override func mouseUp(with event: NSEvent) {
         dragStartMouseLocation = nil
         dragStartWindowOrigin = nil
+        previousDragMouseLocation = nil
+        previousDragTime = nil
         if hasStartedDrag {
             onDragEnded()
         } else {

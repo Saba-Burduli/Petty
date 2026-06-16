@@ -3,11 +3,13 @@ import AppKit
 final class MenuBarController: NSObject {
     private let statusItem: NSStatusItem
     private weak var characterWindowController: CharacterWindowController?
+    private weak var settingsWindowController: SettingsWindowController?
     private let settingsStore: SettingsStore
 
-    init(characterWindowController: CharacterWindowController, settingsStore: SettingsStore) {
+    init(characterWindowController: CharacterWindowController, settingsStore: SettingsStore, settingsWindowController: SettingsWindowController) {
         self.characterWindowController = characterWindowController
         self.settingsStore = settingsStore
+        self.settingsWindowController = settingsWindowController
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         super.init()
         configureStatusItem()
@@ -15,7 +17,7 @@ final class MenuBarController: NSObject {
     }
 
     private func configureStatusItem() {
-        statusItem.button?.title = "Repz"
+        statusItem.button?.title = "Petty"
         statusItem.button?.toolTip = "Petty"
     }
 
@@ -25,6 +27,7 @@ final class MenuBarController: NSObject {
         menu.addItem(NSMenuItem(title: "Show Character", action: #selector(showCharacter), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Hide Character", action: #selector(hideCharacter), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Reset Position", action: #selector(resetPosition), keyEquivalent: "r"))
+        menu.addItem(NSMenuItem(title: "Store & Settings", action: #selector(openSettings), keyEquivalent: ","))
         menu.addItem(NSMenuItem.separator())
 
         let alwaysOnTopItem = NSMenuItem(title: "Always On Top", action: #selector(toggleAlwaysOnTop), keyEquivalent: "")
@@ -48,6 +51,10 @@ final class MenuBarController: NSObject {
 
     @objc private func resetPosition() {
         characterWindowController?.resetPosition()
+    }
+
+    @objc private func openSettings() {
+        settingsWindowController?.show()
     }
 
     @objc private func toggleAlwaysOnTop() {
