@@ -114,7 +114,7 @@ private struct MiniCharacterPreview: View {
 
     var body: some View {
         ZStack(alignment: .center) {
-            if let image = CharacterImageLoader.image(named: "zed_idle", characterFolder: asset.resourceFolder) {
+            if let image = CharacterImageLoader.frameImage(named: "zed_idle", characterFolder: asset.resourceFolder) {
                 Image(nsImage: image)
                     .resizable()
                     .scaledToFit()

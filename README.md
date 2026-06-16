@@ -10,8 +10,8 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The fir
 - Store & Settings window with the bundled Zed character asset.
 - Drag-to-move behavior.
 - Drag-speed-reactive animation.
-- Generated transparent PNG frame rendering for idle, active, bored, poked, slow drag, and fast drag states.
-- Rive runtime integration with a bundled `.riv` proof asset.
+- Layered PNG rig rendering with independently animated head, body, eyelids, and shadow.
+- Live procedural emotion animation for idle, active, sleepy, poked, and dragging states.
 - Saved and restored character position.
 - Basic states: idle, active, bored, and dragging.
 - Privacy-safe activity detection using coarse idle time only.
@@ -35,8 +35,8 @@ xcodebuild -project Petty/Petty.xcodeproj -scheme Petty -configuration Debug bui
 
 ## Current Limitations
 
-- The current character is generated concept art, not a final polished production asset.
-- The current Rive file is a runtime proof asset; the final Petty zombie rig still needs to be authored as an original `.riv` file.
+- The current character is generated concept art split into rig layers, not final polished production art.
+- Rive is integrated as an optional future runtime path, but the current desktop pet uses the custom layered PNG rig.
 - No remote marketplace, backend, accounts, payments, telemetry, AI chat, or cloud sync.
 - Fullscreen and Spaces behavior may vary by macOS version and user window settings.
 - Activity detection is intentionally coarse and does not inspect typed text or app content.
