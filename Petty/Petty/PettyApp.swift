@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct DesktopBuddyApp: App {
+struct PettyApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {

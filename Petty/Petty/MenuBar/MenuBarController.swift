@@ -16,7 +16,7 @@ final class MenuBarController: NSObject {
 
     private func configureStatusItem() {
         statusItem.button?.title = "Repz"
-        statusItem.button?.toolTip = "DesktopBuddy"
+        statusItem.button?.toolTip = "Petty"
     }
 
     private func rebuildMenu() {
@@ -32,7 +32,7 @@ final class MenuBarController: NSObject {
         menu.addItem(alwaysOnTopItem)
 
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit DesktopBuddy", action: #selector(quit), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Quit Petty", action: #selector(quit), keyEquivalent: "q"))
 
         menu.items.forEach { $0.target = self }
         statusItem.menu = menu

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A0000012D10000000000001 /* DesktopBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000112D10000000000001 /* DesktopBuddyApp.swift */; };
+		1A0000012D10000000000001 /* PettyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000112D10000000000001 /* PettyApp.swift */; };
 		1A0000022D10000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000122D10000000000001 /* AppDelegate.swift */; };
 		1A0000032D10000000000001 /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000132D10000000000001 /* CharacterState.swift */; };
 		1A0000042D10000000000001 /* CharacterStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000142D10000000000001 /* CharacterStateManager.swift */; };
@@ -19,8 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A0000102D10000000000001 /* DesktopBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A0000112D10000000000001 /* DesktopBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopBuddyApp.swift; sourceTree = "<group>"; };
+		1A0000102D10000000000001 /* Petty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0000112D10000000000001 /* PettyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PettyApp.swift; sourceTree = "<group>"; };
 		1A0000122D10000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A0000132D10000000000001 /* CharacterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
 		1A0000142D10000000000001 /* CharacterStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStateManager.swift; sourceTree = "<group>"; };
@@ -46,15 +46,15 @@
 		1A0000302D10000000000001 = {
 			isa = PBXGroup;
 			children = (
-				1A0000312D10000000000001 /* DesktopBuddy */,
+				1A0000312D10000000000001 /* Petty */,
 				1A0000322D10000000000001 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1A0000312D10000000000001 /* DesktopBuddy */ = {
+		1A0000312D10000000000001 /* Petty */ = {
 			isa = PBXGroup;
 			children = (
-				1A0000112D10000000000001 /* DesktopBuddyApp.swift */,
+				1A0000112D10000000000001 /* PettyApp.swift */,
 				1A0000122D10000000000001 /* AppDelegate.swift */,
 				1A0000332D10000000000001 /* Character */,
 				1A0000342D10000000000001 /* Activity */,
@@ -62,13 +62,13 @@
 				1A0000362D10000000000001 /* Settings */,
 				1A00001A2D10000000000001 /* Info.plist */,
 			);
-			path = DesktopBuddy;
+			path = Petty;
 			sourceTree = "<group>";
 		};
 		1A0000322D10000000000001 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A0000102D10000000000001 /* DesktopBuddy.app */,
+				1A0000102D10000000000001 /* Petty.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,9 +111,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A0000402D10000000000001 /* DesktopBuddy */ = {
+		1A0000402D10000000000001 /* Petty */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A0000802D10000000000001 /* Build configuration list for PBXNativeTarget "DesktopBuddy" */;
+			buildConfigurationList = 1A0000802D10000000000001 /* Build configuration list for PBXNativeTarget "Petty" */;
 			buildPhases = (
 				1A0000602D10000000000001 /* Sources */,
 				1A0000202D10000000000001 /* Frameworks */,
@@ -123,9 +123,9 @@
 			);
 			dependencies = (
 			);
-			name = DesktopBuddy;
-			productName = DesktopBuddy;
-			productReference = 1A0000102D10000000000001 /* DesktopBuddy.app */;
+			name = Petty;
+			productName = Petty;
+			productReference = 1A0000102D10000000000001 /* Petty.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -143,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1A0000902D10000000000001 /* Build configuration list for PBXProject "DesktopBuddy" */;
+			buildConfigurationList = 1A0000902D10000000000001 /* Build configuration list for PBXProject "Petty" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -156,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1A0000402D10000000000001 /* DesktopBuddy */,
+				1A0000402D10000000000001 /* Petty */,
 			);
 		};
 /* End PBXProject section */
@@ -176,7 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A0000012D10000000000001 /* DesktopBuddyApp.swift in Sources */,
+				1A0000012D10000000000001 /* PettyApp.swift in Sources */,
 				1A0000022D10000000000001 /* AppDelegate.swift in Sources */,
 				1A0000032D10000000000001 /* CharacterState.swift in Sources */,
 				1A0000042D10000000000001 /* CharacterStateManager.swift in Sources */,
@@ -200,13 +200,13 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = DesktopBuddy/Info.plist;
+				INFOPLIST_FILE = Petty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sababurduli.DesktopBuddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sababurduli.Petty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -221,13 +221,13 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = DesktopBuddy/Info.plist;
+				INFOPLIST_FILE = Petty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sababurduli.DesktopBuddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sababurduli.Petty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -346,7 +346,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A0000802D10000000000001 /* Build configuration list for PBXNativeTarget "DesktopBuddy" */ = {
+		1A0000802D10000000000001 /* Build configuration list for PBXNativeTarget "Petty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A0000812D10000000000001 /* Debug */,
@@ -355,7 +355,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A0000902D10000000000001 /* Build configuration list for PBXProject "DesktopBuddy" */ = {
+		1A0000902D10000000000001 /* Build configuration list for PBXProject "Petty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A0000912D10000000000001 /* Debug */,

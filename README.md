@@ -1,6 +1,6 @@
-# DesktopBuddy
+# Petty
 
-DesktopBuddy is a native macOS prototype for a tiny animated desktop companion. The first placeholder character is Repz, an original productivity gym creature that reacts while the user works.
+Petty is a native macOS prototype for a tiny animated desktop companion. The first placeholder character is Repz, an original productivity gym creature that reacts while the user works.
 
 ## Current Prototype Features
 
@@ -17,16 +17,16 @@ DesktopBuddy is a native macOS prototype for a tiny animated desktop companion. 
 Open the project in Xcode:
 
 ```sh
-open DesktopBuddy/DesktopBuddy.xcodeproj
+open Petty/Petty.xcodeproj
 ```
 
-Then select the `DesktopBuddy` scheme and run the macOS app.
+Then select the `Petty` scheme and run the macOS app.
 
 This environment only has Command Line Tools selected, so `xcodebuild` cannot run until full Xcode is installed or selected:
 
 ```sh
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
-xcodebuild -project DesktopBuddy/DesktopBuddy.xcodeproj -scheme DesktopBuddy -configuration Debug build
+xcodebuild -project Petty/Petty.xcodeproj -scheme Petty -configuration Debug build
 ```
 
 ## Current Limitations

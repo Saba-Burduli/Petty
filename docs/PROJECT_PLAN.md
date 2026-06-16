@@ -1,8 +1,8 @@
-# DesktopBuddy Project Plan
+# Petty Project Plan
 
 ## Product Summary
 
-DesktopBuddy is a native macOS desktop companion app. The first character, Repz, is a tiny original productivity gym creature that lives in a transparent floating desktop window and reacts to basic user activity.
+Petty is a native macOS desktop companion app. The first character, Repz, is a tiny original productivity gym creature that lives in a transparent floating desktop window and reacts to basic user activity.
 
 ## MVP Scope
 
@@ -31,7 +31,7 @@ DesktopBuddy is a native macOS desktop companion app. The first character, Repz,
 
 ## Main Files and Classes
 
-- `DesktopBuddyApp.swift`: SwiftUI app entry point and app delegate bridge.
+- `PettyApp.swift`: SwiftUI app entry point and app delegate bridge.
 - `AppDelegate.swift`: app lifecycle and controller wiring.
 - `CharacterWindowController.swift`: transparent floating panel creation, positioning, drag handling, and visibility.
 - `CharacterView.swift`: original SwiftUI placeholder character.
