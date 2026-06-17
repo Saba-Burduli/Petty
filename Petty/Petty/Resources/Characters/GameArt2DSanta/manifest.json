@@ -1,0 +1,33 @@
+{
+  "id": "gameart2d-santa",
+  "displayName": "Santa Claus",
+  "tagline": "Christmas folklore character sprite",
+  "source": "OpenGameArt CC0 by pzUH / GameArt2D",
+  "sortOrder": 7,
+  "animations": {
+    "idle": {
+      "folder": "Idle",
+      "frameCount": 16,
+      "framesPerSecond": 8,
+      "loops": true
+    },
+    "walk": {
+      "folder": "Walk",
+      "frameCount": 11,
+      "framesPerSecond": 12,
+      "loops": true
+    },
+    "attack": {
+      "folder": "Attack",
+      "frameCount": 16,
+      "framesPerSecond": 14,
+      "loops": true
+    },
+    "sleep": {
+      "folder": "Dead",
+      "frameCount": 17,
+      "framesPerSecond": 4,
+      "loops": false
+    }
+  }
+}

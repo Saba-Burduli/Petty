@@ -20,6 +20,27 @@ This file tracks recognizable character candidates checked against official or p
 - License finding: the official Open Surge site says the engine includes ready-to-use game assets under Creative Commons licenses; the `sprites/players/surge.spr` file lists MIT for the sprite definition.
 - Imported as: `Petty/Petty/Resources/Characters/OpenSurgeSurge`
 
+### Santa Claus from OpenGameArt / GameArt2D
+
+- Official source: https://opengameart.org/content/santa-claus-free-sprites
+- Why it fits: recognizable Christmas folklore character with authored frame animations.
+- License finding: OpenGameArt lists the asset as CC0.
+- Imported as: `Petty/Petty/Resources/Characters/GameArt2DSanta`
+
+### Dino from OpenGameArt / GameArt2D
+
+- Official source: https://opengameart.org/content/free-dino-sprites
+- Why it fits: recognizable T-Rex/dinosaur mascot style with authored frame animations.
+- License finding: OpenGameArt lists the asset as CC0.
+- Imported as: `Petty/Petty/Resources/Characters/GameArt2DDino`
+
+### Red Hat Boy from OpenGameArt / GameArt2D
+
+- Official source: https://opengameart.org/content/red-hat-boy-free-sprites
+- Why it fits: recognizable red-hat platformer/plumber-like character with authored frame animations.
+- License finding: OpenGameArt lists the asset as CC0.
+- Imported as: `Petty/Petty/Resources/Characters/GameArt2DRedHatBoy`
+
 ## Researched But Not Imported
 
 ### Commercial Franchise List From June 17 Research

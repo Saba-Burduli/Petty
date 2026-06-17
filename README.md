@@ -21,6 +21,7 @@ The bundled store now includes recognizable free-culture characters from officia
 
 - Tux from SuperTux.
 - Surge from Open Surge.
+- Santa Claus, Dino, and Red Hat Boy from OpenGameArt/GameArt2D CC0 packs.
 
 It also includes the earlier GameArt2D/OpenGameArt packs:
 
