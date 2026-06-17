@@ -4,12 +4,12 @@ Petty can support Rive assets. The Xcode project already references the official
 
 ## Current State
 
-- The in-app Character Store is live with bundled generated PNG character frames.
-- Petty currently renders a custom layered PNG rig generated from the zombie concept asset.
+- The in-app Character Store is live with a bundled OpenGameArt/GameArt2D zombie asset.
+- Petty currently renders full-character authored PNG animation sequences for idle, walk, attack, and sleepy/dead states.
 - The Xcode project resolves and links `RiveRuntime` as an optional future path.
 - Character selection, size, always-on-top, show/hide, and reset position are persisted.
 - Dragging already drives animation intensity through velocity.
-- No `.riv` file is active in the current desktop pet. The next Rive step would be replacing the layered PNG rig with an original Petty zombie `.riv` rig.
+- No `.riv` file is active in the current desktop pet. The next Rive step would be replacing the PNG sequence renderer with an original Petty zombie `.riv` rig.
 
 ## Rive Runtime
 
