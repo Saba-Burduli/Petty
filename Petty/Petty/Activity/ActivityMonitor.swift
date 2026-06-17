@@ -1,19 +1,20 @@
 import AppKit
+import CoreGraphics
 import IOKit
 
 final class ActivityMonitor {
-    private let onIdleTimeChanged: (TimeInterval) -> Void
+    private let onActivityChanged: (ActivitySnapshot) -> Void
     private var timer: Timer?
 
-    init(onIdleTimeChanged: @escaping (TimeInterval) -> Void) {
-        self.onIdleTimeChanged = onIdleTimeChanged
+    init(onActivityChanged: @escaping (ActivitySnapshot) -> Void) {
+        self.onActivityChanged = onActivityChanged
     }
 
     func start() {
         stop()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
             guard let self else { return }
-            self.onIdleTimeChanged(systemIdleSeconds())
+            self.onActivityChanged(ActivitySnapshot.current())
         }
     }
 
@@ -23,7 +24,30 @@ final class ActivityMonitor {
     }
 }
 
-private func systemIdleSeconds() -> TimeInterval {
+struct ActivitySnapshot {
+    let systemIdleSeconds: TimeInterval
+    let keyboardIdleSeconds: TimeInterval
+    let pointerIdleSeconds: TimeInterval
+
+    static func current() -> ActivitySnapshot {
+        ActivitySnapshot(
+            systemIdleSeconds: readSystemIdleSeconds(),
+            keyboardIdleSeconds: secondsSinceLast(.keyDown),
+            pointerIdleSeconds: min(
+                secondsSinceLast(.mouseMoved),
+                secondsSinceLast(.leftMouseDragged),
+                secondsSinceLast(.rightMouseDragged),
+                secondsSinceLast(.otherMouseDragged)
+            )
+        )
+    }
+}
+
+private func secondsSinceLast(_ eventType: CGEventType) -> TimeInterval {
+    CGEventSource.secondsSinceLastEventType(.combinedSessionState, eventType: eventType)
+}
+
+private func readSystemIdleSeconds() -> TimeInterval {
     var iterator: io_iterator_t = 0
     let result = IOServiceGetMatchingServices(
         kIOMainPortDefault,

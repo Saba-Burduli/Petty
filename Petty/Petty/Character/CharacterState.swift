@@ -7,3 +7,9 @@ enum CharacterState: String, CaseIterable {
     case dragging
     case poked
 }
+
+enum CharacterActivityKind {
+    case none
+    case typing
+    case pointer
+}

@@ -30,8 +30,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             settingsWindowController: settingsController
         )
 
-        activityMonitor = ActivityMonitor { [weak stateManager] idleSeconds in
-            stateManager?.update(idleSeconds: idleSeconds)
+        activityMonitor = ActivityMonitor { [weak stateManager] activity in
+            stateManager?.update(activity: activity)
         }
 
         windowController.show()

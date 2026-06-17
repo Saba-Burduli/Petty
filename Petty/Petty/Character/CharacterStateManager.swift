@@ -5,18 +5,21 @@ import Foundation
 final class CharacterStateManager: ObservableObject {
     @Published private(set) var state: CharacterState = .idle
     @Published private(set) var dragSpeed: CGFloat = 0
+    @Published private(set) var activityKind: CharacterActivityKind = .none
 
     private var previousNonDraggingState: CharacterState = .idle
     private var pokeResetTask: Task<Void, Never>?
     private var stateChangedAt = Date()
 
-    func update(idleSeconds: TimeInterval) {
+    func update(activity: ActivitySnapshot) {
         guard state != .dragging, state != .poked else { return }
 
+        activityKind = currentActivityKind(from: activity)
+
         let nextState: CharacterState
-        if idleSeconds < 1.4 {
+        if activity.systemIdleSeconds < 1.4 {
             nextState = .active
-        } else if idleSeconds > 18 {
+        } else if activity.systemIdleSeconds > 18 {
             nextState = .bored
         } else {
             nextState = .idle
@@ -29,6 +32,7 @@ final class CharacterStateManager: ObservableObject {
         if state != .dragging {
             previousNonDraggingState = state
         }
+        activityKind = .pointer
         setState(.dragging)
     }
 
@@ -38,12 +42,14 @@ final class CharacterStateManager: ObservableObject {
 
     func endDragging() {
         dragSpeed = 0
+        activityKind = .none
         setState(previousNonDraggingState)
     }
 
     func poke() {
         guard state != .dragging else { return }
         previousNonDraggingState = state == .poked ? previousNonDraggingState : state
+        activityKind = .pointer
         setState(.poked)
 
         pokeResetTask?.cancel()
@@ -55,6 +61,16 @@ final class CharacterStateManager: ObservableObject {
                 self.setState(self.previousNonDraggingState)
             }
         }
+    }
+
+    private func currentActivityKind(from activity: ActivitySnapshot) -> CharacterActivityKind {
+        if activity.keyboardIdleSeconds < 0.9 {
+            return .typing
+        }
+        if activity.pointerIdleSeconds < 0.9 {
+            return .pointer
+        }
+        return .none
     }
 
     private func setNonDraggingState(_ nextState: CharacterState) {
