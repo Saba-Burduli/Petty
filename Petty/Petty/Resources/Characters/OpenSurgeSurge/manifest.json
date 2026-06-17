@@ -1,0 +1,33 @@
+{
+  "id": "opensurge-surge",
+  "displayName": "Surge",
+  "tagline": "Official Open Surge runner sprite",
+  "source": "Open Surge Engine by Alexandre Martins, official Creative Commons asset notice",
+  "sortOrder": 6,
+  "animations": {
+    "idle": {
+      "folder": "Idle",
+      "frameCount": 60,
+      "framesPerSecond": 8,
+      "loops": true
+    },
+    "walk": {
+      "folder": "Walk",
+      "frameCount": 8,
+      "framesPerSecond": 18,
+      "loops": true
+    },
+    "attack": {
+      "folder": "Attack",
+      "frameCount": 12,
+      "framesPerSecond": 20,
+      "loops": true
+    },
+    "sleep": {
+      "folder": "Sleep",
+      "frameCount": 3,
+      "framesPerSecond": 5,
+      "loops": false
+    }
+  }
+}

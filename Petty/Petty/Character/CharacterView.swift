@@ -102,6 +102,14 @@ struct CharacterView: View {
 enum CharacterImageLoader {
     static func animationFrame(asset: CharacterAsset, animation: CharacterAnimation, frameNumber: Int) -> NSImage? {
         let fileName = "\(animation.folder)_\(String(format: "%03d", frameNumber))"
+        if let resourceURL = asset.resourceURL {
+            let url = resourceURL
+                .appendingPathComponent("Frames", isDirectory: true)
+                .appendingPathComponent(animation.folder, isDirectory: true)
+                .appendingPathComponent("\(fileName).png")
+            return NSImage(contentsOf: url)
+        }
+
         let relativePath = "Resources/Characters/\(asset.resourceFolder)/Frames/\(animation.folder)/\(fileName)"
         guard let url = Bundle.main.url(forResource: relativePath, withExtension: "png") else {
             return nil
