@@ -1,0 +1,33 @@
+{
+  "id": "gameart2d-zombie",
+  "displayName": "Zombie",
+  "tagline": "Halloween platformer character",
+  "source": "OpenGameArt CC0 by pzUH / GameArt2D",
+  "sortOrder": 10,
+  "animations": {
+    "idle": {
+      "folder": "Idle",
+      "frameCount": 15,
+      "framesPerSecond": 7,
+      "loops": true
+    },
+    "walk": {
+      "folder": "Walk",
+      "frameCount": 10,
+      "framesPerSecond": 10,
+      "loops": true
+    },
+    "attack": {
+      "folder": "Attack",
+      "frameCount": 8,
+      "framesPerSecond": 14,
+      "loops": true
+    },
+    "sleep": {
+      "folder": "Dead",
+      "frameCount": 12,
+      "framesPerSecond": 4,
+      "loops": false
+    }
+  }
+}

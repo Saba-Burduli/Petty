@@ -31,6 +31,7 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 - Floating always-on-top mode.
 - Menu bar controls for show, hide, reset position, always-on-top, and quit.
 - Store & Settings window with bundled GameArt2D/OpenGameArt character assets.
+- Drop-in bundled character packs loaded from per-character manifests.
 - Drag-to-move behavior.
 - Drag-speed-reactive animation playback.
 - Authored PNG sequence rendering for idle, walk/run, attack, and sleepy/dead states.
@@ -53,6 +54,12 @@ Or use the project run script:
 ```sh
 ./script/build_and_run.sh
 ```
+
+## Adding Character Packs
+
+Petty now discovers bundled character folders from `Petty/Petty/Resources/Characters`. Add a folder with PNG sequence frames, `ATTRIBUTION.md`, and `manifest.json`; the app loads it into the Store & Settings character picker automatically on next build.
+
+See [docs/ASSET_PACKS.md](docs/ASSET_PACKS.md) for the expected folder layout and manifest schema.
 
 ## Current Limitations
 
