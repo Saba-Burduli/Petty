@@ -3,7 +3,7 @@
   "displayName": "Spartan Warlord",
   "tagline": "Original indie Spartan companion",
   "source": "Generated for Petty from an original Spartan archetype",
-  "sortOrder": 4,
+  "sortOrder": 1,
   "animations": {
     "idle": {
       "folder": "Idle",
