@@ -20,20 +20,6 @@ This file tracks recognizable character candidates checked against official or p
 - License finding: the official Open Surge site says the engine includes ready-to-use game assets under Creative Commons licenses; the `sprites/players/surge.spr` file lists MIT for the sprite definition.
 - Imported as: `Petty/Petty/Resources/Characters/OpenSurgeSurge`
 
-### Santa Claus from OpenGameArt / GameArt2D
-
-- Official source: https://opengameart.org/content/santa-claus-free-sprites
-- Why it fits: recognizable Christmas folklore character with authored frame animations.
-- License finding: OpenGameArt lists the asset as CC0.
-- Imported as: `Petty/Petty/Resources/Characters/GameArt2DSanta`
-
-### Dino from OpenGameArt / GameArt2D
-
-- Official source: https://opengameart.org/content/free-dino-sprites
-- Why it fits: recognizable T-Rex/dinosaur mascot style with authored frame animations.
-- License finding: OpenGameArt lists the asset as CC0.
-- Imported as: `Petty/Petty/Resources/Characters/GameArt2DDino`
-
 ### Red Hat Boy from OpenGameArt / GameArt2D
 
 - Official source: https://opengameart.org/content/red-hat-boy-free-sprites
@@ -41,7 +27,22 @@ This file tracks recognizable character candidates checked against official or p
 - License finding: OpenGameArt lists the asset as CC0.
 - Imported as: `Petty/Petty/Resources/Characters/GameArt2DRedHatBoy`
 
+### Storm Trooper from W_K_Studio
+
+- Source: https://whiteknightstudios.itch.io/old-school-fps-8d-trooper-v3
+- Why it fits: Star-Wars-tagged 2D sprite pack with idle, walking, shooting, and falling animations.
+- License finding: itch.io lists the asset license as Creative Commons Zero v1.0 Universal.
+- Imported as: `Petty/Petty/Resources/Characters/WKStudioStormTrooper`
+
 ## Researched But Not Imported
+
+### Removed From Store
+
+These packs were previously imported, but are no longer bundled in the Character Store:
+
+- `Petty/Petty/Resources/Characters/GameArt2DSanta`
+- `Petty/Petty/Resources/Characters/GameArt2DDino`
+- `Petty/Petty/Resources/Characters/PettySpartanWarlord`
 
 ### Commercial Franchise List From June 17 Research
 
