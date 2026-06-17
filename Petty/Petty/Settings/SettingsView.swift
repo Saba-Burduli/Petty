@@ -16,7 +16,7 @@ struct SettingsView: View {
                 Text("Character Store")
                     .font(.headline)
 
-                Text("Bundled character frames are rendered directly in the desktop pet. Rive can still be added later if we need vector state machines.")
+                Text("Bundled character frames are sourced from authored asset packs and rendered directly in the desktop pet.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
@@ -114,7 +114,7 @@ private struct MiniCharacterPreview: View {
 
     var body: some View {
         ZStack(alignment: .center) {
-            if let image = CharacterImageLoader.frameImage(named: "zed_idle", characterFolder: asset.resourceFolder) {
+            if let image = CharacterImageLoader.previewImage(asset: asset) {
                 Image(nsImage: image)
                     .resizable()
                     .scaledToFit()
