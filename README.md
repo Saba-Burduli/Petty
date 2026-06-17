@@ -17,6 +17,13 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 
 ![Petty asset lineup](docs/media/petty-assets-lineup.png)
 
+The bundled store now includes recognizable free-culture characters from official open-source game projects:
+
+- Tux from SuperTux.
+- Surge from Open Surge.
+
+It also includes the earlier GameArt2D/OpenGameArt packs:
+
 | Zombie | Knight | Robot |
 | --- | --- | --- |
 | ![Zombie asset states](docs/media/petty-asset-zombie.png) | ![Knight asset states](docs/media/petty-asset-knight.png) | ![Robot asset states](docs/media/petty-asset-robot.png) |
@@ -30,7 +37,7 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 - Transparent, borderless character window.
 - Floating always-on-top mode.
 - Menu bar controls for show, hide, reset position, always-on-top, and quit.
-- Store & Settings window with bundled GameArt2D/OpenGameArt character assets.
+- Store & Settings window with bundled SuperTux, Open Surge, GameArt2D, and OpenGameArt character assets.
 - Drop-in bundled character packs loaded from per-character manifests.
 - Drag-to-move behavior.
 - Drag-speed-reactive animation playback.
@@ -60,6 +67,8 @@ Or use the project run script:
 Petty now discovers bundled character folders from `Petty/Petty/Resources/Characters`. Add a folder with PNG sequence frames, `ATTRIBUTION.md`, and `manifest.json`; the app loads it into the Store & Settings character picker automatically on next build.
 
 See [docs/ASSET_PACKS.md](docs/ASSET_PACKS.md) for the expected folder layout and manifest schema.
+
+See [docs/ASSET_RESEARCH.md](docs/ASSET_RESEARCH.md) for the official-source asset research notes.
 
 ## Current Limitations
 

@@ -1,0 +1,33 @@
+{
+  "id": "supertux-tux",
+  "displayName": "Tux",
+  "tagline": "Official SuperTux player sprite",
+  "source": "SuperTux project data, GPLv3 / CC-BY-SA data notice",
+  "sortOrder": 5,
+  "animations": {
+    "idle": {
+      "folder": "Idle",
+      "frameCount": 12,
+      "framesPerSecond": 12,
+      "loops": true
+    },
+    "walk": {
+      "folder": "Walk",
+      "frameCount": 8,
+      "framesPerSecond": 14,
+      "loops": true
+    },
+    "attack": {
+      "folder": "Attack",
+      "frameCount": 6,
+      "framesPerSecond": 16,
+      "loops": true
+    },
+    "sleep": {
+      "folder": "Sleep",
+      "frameCount": 5,
+      "framesPerSecond": 5,
+      "loops": false
+    }
+  }
+}
