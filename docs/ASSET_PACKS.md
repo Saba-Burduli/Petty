@@ -2,6 +2,14 @@
 
 Petty loads bundled character packs from `Petty/Petty/Resources/Characters`.
 
+For local-only private testing, Petty also loads character packs from:
+
+```text
+~/Library/Application Support/Petty/Characters
+```
+
+Packs in that local folder are not committed to GitHub and are still shown in the Store & Settings character picker after the app restarts.
+
 ## Folder Layout
 
 Each character folder needs this structure:

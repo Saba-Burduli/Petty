@@ -16,3 +16,4 @@ build/
 # Local files
 *.log
 *.tmp
+LocalCharacters/

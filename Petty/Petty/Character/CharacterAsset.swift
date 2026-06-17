@@ -5,6 +5,7 @@ struct CharacterAsset: Identifiable, Equatable {
     let displayName: String
     let tagline: String
     let resourceFolder: String
+    let resourceURL: URL?
     let source: String
     let sortOrder: Int
     let idleAnimation: CharacterAnimation
@@ -56,7 +57,7 @@ enum CharacterCatalog {
     }
 
     private static func loadAssets() -> [CharacterAsset] {
-        let loadedAssets = loadBundledAssets()
+        let loadedAssets = loadBundledAssets() + loadLocalAssets()
         return loadedAssets.isEmpty ? fallbackAssets : loadedAssets
     }
 
@@ -73,7 +74,28 @@ enum CharacterCatalog {
             return []
         }
 
-        return folders.compactMap(loadAsset)
+        return folders.compactMap { loadAsset(from: $0, isLocal: false) }
+            .sorted {
+                if $0.sortOrder == $1.sortOrder {
+                    return $0.displayName.localizedStandardCompare($1.displayName) == .orderedAscending
+                }
+                return $0.sortOrder < $1.sortOrder
+            }
+    }
+
+    private static func loadLocalAssets() -> [CharacterAsset] {
+        let charactersURL = localCharactersDirectoryURL()
+        try? FileManager.default.createDirectory(at: charactersURL, withIntermediateDirectories: true)
+
+        guard let folders = try? FileManager.default.contentsOfDirectory(
+            at: charactersURL,
+            includingPropertiesForKeys: [.isDirectoryKey],
+            options: [.skipsHiddenFiles]
+        ) else {
+            return []
+        }
+
+        return folders.compactMap { loadAsset(from: $0, isLocal: true) }
             .sorted {
                 if $0.sortOrder == $1.sortOrder {
                     return $0.displayName.localizedStandardCompare($1.displayName) == .orderedAscending
@@ -90,7 +112,14 @@ enum CharacterCatalog {
         return Bundle.main.resourceURL?.appendingPathComponent("Resources/Characters", isDirectory: true)
     }
 
-    private static func loadAsset(from folderURL: URL) -> CharacterAsset? {
+    private static func localCharactersDirectoryURL() -> URL {
+        let applicationSupportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        return applicationSupportURL
+            .appendingPathComponent("Petty", isDirectory: true)
+            .appendingPathComponent("Characters", isDirectory: true)
+    }
+
+    private static func loadAsset(from folderURL: URL, isLocal: Bool) -> CharacterAsset? {
         guard (try? folderURL.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true else {
             return nil
         }
@@ -106,6 +135,7 @@ enum CharacterCatalog {
             displayName: manifest.displayName,
             tagline: manifest.tagline,
             resourceFolder: folderURL.lastPathComponent,
+            resourceURL: isLocal ? folderURL : nil,
             source: manifest.source,
             sortOrder: manifest.sortOrder,
             idleAnimation: manifest.animations.idle,
@@ -121,6 +151,7 @@ enum CharacterCatalog {
             displayName: "Zombie",
             tagline: "Halloween platformer character",
             resourceFolder: "GameArt2DZombie",
+            resourceURL: nil,
             source: "OpenGameArt CC0 by pzUH / GameArt2D",
             sortOrder: 10,
             idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 15, framesPerSecond: 7, loops: true),
@@ -133,6 +164,7 @@ enum CharacterCatalog {
             displayName: "Knight",
             tagline: "Fantasy side-scroller hero",
             resourceFolder: "GameArt2DKnight",
+            resourceURL: nil,
             source: "GameArt2D Freebie CC0",
             sortOrder: 20,
             idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
@@ -145,6 +177,7 @@ enum CharacterCatalog {
             displayName: "Robot",
             tagline: "Sci-fi platformer companion",
             resourceFolder: "GameArt2DRobot",
+            resourceURL: nil,
             source: "GameArt2D Freebie CC0",
             sortOrder: 30,
             idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
@@ -157,6 +190,7 @@ enum CharacterCatalog {
             displayName: "Ninja Girl",
             tagline: "Fast action platformer hero",
             resourceFolder: "GameArt2DNinjaGirl",
+            resourceURL: nil,
             source: "GameArt2D Freebie CC0",
             sortOrder: 40,
             idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
@@ -169,6 +203,7 @@ enum CharacterCatalog {
             displayName: "Adventurer",
             tagline: "Temple-run inspired explorer",
             resourceFolder: "GameArt2DAdventurerGirl",
+            resourceURL: nil,
             source: "GameArt2D Freebie CC0",
             sortOrder: 50,
             idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
