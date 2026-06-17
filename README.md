@@ -1,6 +1,6 @@
 # Petty
 
-Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses a sourced 2D zombie sprite asset with authored frame animations.
+Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses sourced 2D character sprite assets with authored frame animations.
 
 ## Demo
 
@@ -8,19 +8,32 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 
 ![Petty animation demo](docs/media/petty-demo.gif)
 
-- [X-ready edited MP4 demo](docs/media/petty-x-demo.mp4)
+- [X-ready edited MP4 demo with character transitions](docs/media/petty-x-demo.mp4)
+- [Full-size MP4 asset transition demo](docs/media/petty-assets-demo.mp4)
 - [Raw live desktop recording](docs/media/petty-live-recording.mov)
 - [Live desktop screenshot](docs/media/petty-live-desktop.png)
+
+## Character Assets
+
+![Petty asset lineup](docs/media/petty-assets-lineup.png)
+
+| Zombie | Knight | Robot |
+| --- | --- | --- |
+| ![Zombie asset states](docs/media/petty-asset-zombie.png) | ![Knight asset states](docs/media/petty-asset-knight.png) | ![Robot asset states](docs/media/petty-asset-robot.png) |
+
+| Ninja Girl | Adventurer |
+| --- | --- |
+| ![Ninja Girl asset states](docs/media/petty-asset-ninja-girl.png) | ![Adventurer asset states](docs/media/petty-asset-adventurer.png) |
 
 ## Current Prototype Features
 
 - Transparent, borderless character window.
 - Floating always-on-top mode.
 - Menu bar controls for show, hide, reset position, always-on-top, and quit.
-- Store & Settings window with the bundled OpenGameArt/GameArt2D zombie asset.
+- Store & Settings window with bundled GameArt2D/OpenGameArt character assets.
 - Drag-to-move behavior.
 - Drag-speed-reactive animation playback.
-- Authored PNG sequence rendering for idle, walk, attack, and sleepy/dead states.
+- Authored PNG sequence rendering for idle, walk/run, attack, and sleepy/dead states.
 - Saved and restored character position.
 - Basic states: idle, active, bored, and dragging.
 - Privacy-safe activity detection using system idle time plus keyboard/pointer event timing.

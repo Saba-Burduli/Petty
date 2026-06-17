@@ -52,13 +52,57 @@ enum CharacterCatalog {
         CharacterAsset(
             id: "gameart2d-zombie",
             displayName: "Zombie",
-            tagline: "Authored 2D frame animations",
+            tagline: "Halloween platformer character",
             resourceFolder: "GameArt2DZombie",
             source: "OpenGameArt CC0 by pzUH / GameArt2D",
             idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 15, framesPerSecond: 7, loops: true),
             walkAnimation: CharacterAnimation(folder: "Walk", frameCount: 10, framesPerSecond: 10, loops: true),
             attackAnimation: CharacterAnimation(folder: "Attack", frameCount: 8, framesPerSecond: 14, loops: true),
             sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 12, framesPerSecond: 4, loops: false)
+        ),
+        CharacterAsset(
+            id: "gameart2d-knight",
+            displayName: "Knight",
+            tagline: "Fantasy side-scroller hero",
+            resourceFolder: "GameArt2DKnight",
+            source: "GameArt2D Freebie CC0",
+            idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
+            walkAnimation: CharacterAnimation(folder: "Walk", frameCount: 10, framesPerSecond: 10, loops: true),
+            attackAnimation: CharacterAnimation(folder: "Attack", frameCount: 10, framesPerSecond: 14, loops: true),
+            sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 10, framesPerSecond: 4, loops: false)
+        ),
+        CharacterAsset(
+            id: "gameart2d-robot",
+            displayName: "Robot",
+            tagline: "Sci-fi platformer companion",
+            resourceFolder: "GameArt2DRobot",
+            source: "GameArt2D Freebie CC0",
+            idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
+            walkAnimation: CharacterAnimation(folder: "Walk", frameCount: 8, framesPerSecond: 10, loops: true),
+            attackAnimation: CharacterAnimation(folder: "Attack", frameCount: 8, framesPerSecond: 13, loops: true),
+            sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 10, framesPerSecond: 4, loops: false)
+        ),
+        CharacterAsset(
+            id: "gameart2d-ninja-girl",
+            displayName: "Ninja Girl",
+            tagline: "Fast action platformer hero",
+            resourceFolder: "GameArt2DNinjaGirl",
+            source: "GameArt2D Freebie CC0",
+            idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
+            walkAnimation: CharacterAnimation(folder: "Walk", frameCount: 10, framesPerSecond: 12, loops: true),
+            attackAnimation: CharacterAnimation(folder: "Attack", frameCount: 10, framesPerSecond: 14, loops: true),
+            sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 10, framesPerSecond: 4, loops: false)
+        ),
+        CharacterAsset(
+            id: "gameart2d-adventurer-girl",
+            displayName: "Adventurer",
+            tagline: "Temple-run inspired explorer",
+            resourceFolder: "GameArt2DAdventurerGirl",
+            source: "GameArt2D Freebie CC0",
+            idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
+            walkAnimation: CharacterAnimation(folder: "Walk", frameCount: 8, framesPerSecond: 10, loops: true),
+            attackAnimation: CharacterAnimation(folder: "Attack", frameCount: 7, framesPerSecond: 13, loops: true),
+            sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 10, framesPerSecond: 4, loops: false)
         )
     ]
 
