@@ -1,6 +1,6 @@
 # Petty
 
-Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses a sourced 2D zombie sprite asset with authored frame animations.
+Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses sourced 2D character sprite assets with authored frame animations.
 
 ## Demo
 
@@ -17,10 +17,10 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 - Transparent, borderless character window.
 - Floating always-on-top mode.
 - Menu bar controls for show, hide, reset position, always-on-top, and quit.
-- Store & Settings window with the bundled OpenGameArt/GameArt2D zombie asset.
+- Store & Settings window with bundled GameArt2D/OpenGameArt character assets.
 - Drag-to-move behavior.
 - Drag-speed-reactive animation playback.
-- Authored PNG sequence rendering for idle, walk, attack, and sleepy/dead states.
+- Authored PNG sequence rendering for idle, walk/run, attack, and sleepy/dead states.
 - Saved and restored character position.
 - Basic states: idle, active, bored, and dragging.
 - Privacy-safe activity detection using system idle time plus keyboard/pointer event timing.

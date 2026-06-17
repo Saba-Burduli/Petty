@@ -20,16 +20,20 @@ struct SettingsView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 12)], spacing: 12) {
-                    ForEach(CharacterCatalog.assets) { asset in
-                        CharacterCard(
-                            asset: asset,
-                            isSelected: asset.id == settingsStore.selectedCharacterID
-                        ) {
-                            settingsStore.selectedCharacterID = asset.id
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 12)], spacing: 12) {
+                        ForEach(CharacterCatalog.assets) { asset in
+                            CharacterCard(
+                                asset: asset,
+                                isSelected: asset.id == settingsStore.selectedCharacterID
+                            ) {
+                                settingsStore.selectedCharacterID = asset.id
+                            }
                         }
                     }
+                    .padding(.vertical, 2)
                 }
+                .frame(maxHeight: 270)
             }
 
             Divider()
@@ -96,6 +100,7 @@ private struct CharacterCard: View {
                     Text(asset.source)
                         .font(.caption2.weight(.semibold))
                         .foregroundStyle(.secondary)
+                        .lineLimit(2)
                 }
             }
             .padding(12)
