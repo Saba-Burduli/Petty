@@ -2,6 +2,16 @@
 
 Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses a sourced 2D zombie sprite asset with authored frame animations.
 
+## Demo
+
+![Petty demo poster](docs/media/petty-demo-poster.png)
+
+![Petty animation demo](docs/media/petty-demo.gif)
+
+- [X-ready edited MP4 demo](docs/media/petty-x-demo.mp4)
+- [Raw live desktop recording](docs/media/petty-live-recording.mov)
+- [Live desktop screenshot](docs/media/petty-live-desktop.png)
+
 ## Current Prototype Features
 
 - Transparent, borderless character window.
