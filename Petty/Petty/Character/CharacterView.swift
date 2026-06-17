@@ -2,11 +2,22 @@ import AppKit
 import SwiftUI
 
 struct CharacterView: View {
+    static let basePanelSize = CGSize(width: 220, height: 220)
+    private static let scalePadding: CGFloat = 36
+
     @ObservedObject var stateManager: CharacterStateManager
     @ObservedObject var settingsStore: SettingsStore
 
     private var selectedAsset: CharacterAsset {
         CharacterCatalog.asset(id: settingsStore.selectedCharacterID)
+    }
+
+    static func panelSize(for scale: Double) -> CGSize {
+        let clampedScale = max(CGFloat(scale), 1)
+        return CGSize(
+            width: basePanelSize.width * clampedScale + scalePadding,
+            height: basePanelSize.height * clampedScale + scalePadding
+        )
     }
 
     var body: some View {
@@ -44,13 +55,16 @@ struct CharacterView: View {
                         .foregroundStyle(.secondary)
                 }
             }
-            .frame(width: 220, height: 220)
+            .frame(width: Self.basePanelSize.width, height: Self.basePanelSize.height)
             .scaleEffect(settingsStore.characterScale)
             .animation(.easeInOut(duration: 0.16), value: stateManager.state)
             .animation(.interactiveSpring(response: 0.18, dampingFraction: 0.7), value: stateManager.dragSpeed)
         }
         .padding(6)
-        .frame(width: 220, height: 220)
+        .frame(
+            width: Self.panelSize(for: settingsStore.characterScale).width,
+            height: Self.panelSize(for: settingsStore.characterScale).height
+        )
         .contentShape(Rectangle())
     }
 

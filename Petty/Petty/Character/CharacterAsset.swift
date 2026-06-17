@@ -148,8 +148,8 @@ enum CharacterCatalog {
     private static let fallbackAssets: [CharacterAsset] = [
         CharacterAsset(
             id: "gameart2d-zombie",
-            displayName: "Zombie",
-            tagline: "Halloween platformer character",
+            displayName: "Graveyard Intern",
+            tagline: "Sleepy undead companion for idle-mode testing",
             resourceFolder: "GameArt2DZombie",
             resourceURL: nil,
             source: "OpenGameArt CC0 by pzUH / GameArt2D",
@@ -161,8 +161,8 @@ enum CharacterCatalog {
         ),
         CharacterAsset(
             id: "gameart2d-knight",
-            displayName: "Knight",
-            tagline: "Fantasy side-scroller hero",
+            displayName: "Ironkeep Sentinel",
+            tagline: "Castle-guard companion with sword-state animations",
             resourceFolder: "GameArt2DKnight",
             resourceURL: nil,
             source: "GameArt2D Freebie CC0",
@@ -173,22 +173,22 @@ enum CharacterCatalog {
             sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 10, framesPerSecond: 4, loops: false)
         ),
         CharacterAsset(
-            id: "gameart2d-robot",
-            displayName: "Robot",
-            tagline: "Sci-fi platformer companion",
-            resourceFolder: "GameArt2DRobot",
+            id: "wk-studio-storm-trooper",
+            displayName: "Storm Trooper",
+            tagline: "Free retro Star Wars-tagged 2D animated sprite pack",
+            resourceFolder: "WKStudioStormTrooper",
             resourceURL: nil,
-            source: "GameArt2D Freebie CC0",
+            source: "W_K_Studio CC0 itch.io asset pack",
             sortOrder: 30,
-            idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 10, framesPerSecond: 7, loops: true),
-            walkAnimation: CharacterAnimation(folder: "Walk", frameCount: 8, framesPerSecond: 10, loops: true),
-            attackAnimation: CharacterAnimation(folder: "Attack", frameCount: 8, framesPerSecond: 13, loops: true),
-            sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 10, framesPerSecond: 4, loops: false)
+            idleAnimation: CharacterAnimation(folder: "Idle", frameCount: 20, framesPerSecond: 8, loops: true),
+            walkAnimation: CharacterAnimation(folder: "Walk", frameCount: 20, framesPerSecond: 12, loops: true),
+            attackAnimation: CharacterAnimation(folder: "Attack", frameCount: 8, framesPerSecond: 12, loops: true),
+            sleepAnimation: CharacterAnimation(folder: "Dead", frameCount: 20, framesPerSecond: 8, loops: false)
         ),
         CharacterAsset(
             id: "gameart2d-ninja-girl",
-            displayName: "Ninja Girl",
-            tagline: "Fast action platformer hero",
+            displayName: "Shadowbyte Kunoichi",
+            tagline: "Stealth runner with sharp desktop focus",
             resourceFolder: "GameArt2DNinjaGirl",
             resourceURL: nil,
             source: "GameArt2D Freebie CC0",
@@ -200,8 +200,8 @@ enum CharacterCatalog {
         ),
         CharacterAsset(
             id: "gameart2d-adventurer-girl",
-            displayName: "Adventurer",
-            tagline: "Temple-run inspired explorer",
+            displayName: "Relic Scout",
+            tagline: "Explorer companion built for quick motion states",
             resourceFolder: "GameArt2DAdventurerGirl",
             resourceURL: nil,
             source: "GameArt2D Freebie CC0",

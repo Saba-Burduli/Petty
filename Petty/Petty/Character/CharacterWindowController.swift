@@ -5,7 +5,6 @@ import SwiftUI
 final class CharacterWindowController: NSObject {
     private let stateManager: CharacterStateManager
     private let settingsStore: SettingsStore
-    private let panelSize = NSSize(width: 220, height: 220)
     private var panel: NSPanel?
     private var cancellables = Set<AnyCancellable>()
 
@@ -52,6 +51,7 @@ final class CharacterWindowController: NSObject {
     }
 
     private func createPanel() {
+        let panelSize = currentPanelSize()
         let origin = restoredOrigin() ?? defaultOrigin()
         let frame = NSRect(origin: origin, size: panelSize)
         let panel = NSPanel(
@@ -105,6 +105,14 @@ final class CharacterWindowController: NSObject {
                 self?.applyWindowLevel()
             }
             .store(in: &cancellables)
+
+        settingsStore.$characterScale
+            .removeDuplicates()
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.resizePanelForCurrentScale()
+            }
+            .store(in: &cancellables)
     }
 
     private func ensureVisibleFrame() {
@@ -124,7 +132,7 @@ final class CharacterWindowController: NSObject {
 
     private func restoredOrigin() -> NSPoint? {
         guard let origin = settingsStore.characterOrigin else { return nil }
-        let frame = NSRect(origin: origin, size: panelSize)
+        let frame = NSRect(origin: origin, size: currentPanelSize())
         return isFrameVisible(frame) ? origin : nil
     }
 
@@ -137,10 +145,34 @@ final class CharacterWindowController: NSObject {
     private func defaultOrigin() -> NSPoint {
         let screen = NSScreen.main ?? NSScreen.screens.first
         let visibleFrame = screen?.visibleFrame ?? NSRect(x: 0, y: 0, width: 1440, height: 900)
+        let panelSize = currentPanelSize()
         return NSPoint(
             x: visibleFrame.maxX - panelSize.width - 48,
             y: visibleFrame.minY + 72
         )
+    }
+
+    private func currentPanelSize() -> NSSize {
+        let size = CharacterView.panelSize(for: settingsStore.characterScale)
+        return NSSize(width: size.width, height: size.height)
+    }
+
+    private func resizePanelForCurrentScale() {
+        guard let panel else { return }
+        let oldFrame = panel.frame
+        let newSize = currentPanelSize()
+        guard oldFrame.size != newSize else { return }
+
+        let newOrigin = NSPoint(
+            x: oldFrame.midX - newSize.width / 2,
+            y: oldFrame.minY
+        )
+        panel.setFrame(NSRect(origin: newOrigin, size: newSize), display: true)
+        if let hostingView = panel.contentView {
+            hostingView.frame = NSRect(origin: .zero, size: newSize)
+        }
+        constrainToVisibleScreen()
+        saveCurrentPosition()
     }
 }
 

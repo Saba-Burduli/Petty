@@ -1,7 +1,7 @@
 {
   "id": "gameart2d-knight",
-  "displayName": "Knight",
-  "tagline": "Fantasy side-scroller hero",
+  "displayName": "Ironkeep Sentinel",
+  "tagline": "Castle-guard companion with sword-state animations",
   "source": "GameArt2D Freebie CC0",
   "sortOrder": 20,
   "animations": {

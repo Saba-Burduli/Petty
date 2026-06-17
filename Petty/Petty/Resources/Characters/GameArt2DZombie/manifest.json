@@ -1,7 +1,7 @@
 {
   "id": "gameart2d-zombie",
-  "displayName": "Zombie",
-  "tagline": "Halloween platformer character",
+  "displayName": "Graveyard Intern",
+  "tagline": "Sleepy undead companion for idle-mode testing",
   "source": "OpenGameArt CC0 by pzUH / GameArt2D",
   "sortOrder": 10,
   "animations": {
