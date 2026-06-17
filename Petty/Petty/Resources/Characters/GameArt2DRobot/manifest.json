@@ -1,7 +1,7 @@
 {
   "id": "gameart2d-robot",
-  "displayName": "Robot",
-  "tagline": "Sci-fi platformer companion",
+  "displayName": "Kernel Droid",
+  "tagline": "Terminal-friendly robot companion",
   "source": "GameArt2D Freebie CC0",
   "sortOrder": 30,
   "animations": {

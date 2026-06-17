@@ -1,31 +1,31 @@
 {
-  "id": "gameart2d-ninja-girl",
-  "displayName": "Shadowbyte Kunoichi",
-  "tagline": "Stealth runner with sharp desktop focus",
-  "source": "GameArt2D Freebie CC0",
-  "sortOrder": 40,
+  "id": "pincholinco-cyberpunk-ninja",
+  "displayName": "Cyberpunk Ninja",
+  "tagline": "Imported 8-bit neon side-scroller sprite pack",
+  "source": "Pincholinco Cyberpunk Ninja Character Sprite on itch.io",
+  "sortOrder": 12,
   "animations": {
     "idle": {
       "folder": "Idle",
-      "frameCount": 10,
+      "frameCount": 7,
       "framesPerSecond": 7,
       "loops": true
     },
     "walk": {
       "folder": "Walk",
-      "frameCount": 10,
+      "frameCount": 12,
       "framesPerSecond": 12,
       "loops": true
     },
     "attack": {
       "folder": "Attack",
-      "frameCount": 10,
-      "framesPerSecond": 14,
+      "frameCount": 6,
+      "framesPerSecond": 12,
       "loops": true
     },
     "sleep": {
       "folder": "Dead",
-      "frameCount": 10,
+      "frameCount": 3,
       "framesPerSecond": 4,
       "loops": false
     }

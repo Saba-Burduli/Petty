@@ -1,7 +1,7 @@
 {
   "id": "gameart2d-adventurer-girl",
-  "displayName": "Adventurer",
-  "tagline": "Temple-run inspired explorer",
+  "displayName": "Relic Scout",
+  "tagline": "Explorer companion built for quick motion states",
   "source": "GameArt2D Freebie CC0",
   "sortOrder": 50,
   "animations": {
