@@ -4,6 +4,10 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 
 ## Demo
 
+![Petty character world showcase](docs/media/petty-character-worlds.gif)
+
+- [X-ready Storm Trooper MP4 showcase](docs/media/petty-x-stormtrooper-showcase.mp4)
+- [X-ready Storm Trooper GIF showcase](docs/media/petty-x-stormtrooper-showcase.gif)
 - [X-ready edited MP4 demo with character transitions](docs/media/petty-x-demo.mp4)
 - [Full-size MP4 asset transition demo](docs/media/petty-assets-demo.mp4)
 - [Raw live desktop recording](docs/media/petty-live-recording.mov)
