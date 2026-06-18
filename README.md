@@ -2,6 +2,9 @@
 
 Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses sourced 2D character sprite assets with authored frame animations.
 
+The standalone website is maintained in
+[Petty-Landing](https://github.com/Saba-Burduli/Petty-Landing).
+
 ## Character Assets
 
 ![Petty asset lineup](docs/media/petty-assets-lineup.png)
