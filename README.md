@@ -2,18 +2,6 @@
 
 Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses sourced 2D character sprite assets with authored frame animations.
 
-## Demo
-
-![Petty live AI character worlds](docs/media/ai-character-worlds/petty-all-character-worlds-live.gif)
-
-- [Full nine-character live-world MP4](docs/media/ai-character-worlds/petty-all-character-worlds-live.mp4)
-- [Raw live desktop recording](docs/media/petty-live-recording.mov)
-- [Live desktop screenshot](docs/media/petty-live-desktop.png)
-
-The showcase includes character-specific moving environments: snow and aurora,
-speed streaks, rooftop steam, rain, neon light sweeps, cherry petals, forge
-embers, fireflies, and starship alarm lighting.
-
 ## Character Assets
 
 ![Petty asset lineup](docs/media/petty-assets-lineup.png)
