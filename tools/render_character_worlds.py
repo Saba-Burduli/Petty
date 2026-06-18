@@ -5,12 +5,11 @@ import random
 import subprocess
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MEDIA = ROOT / "docs/media/ai-character-worlds"
-CHARACTERS = ROOT / "Petty/Petty/Resources/Characters"
 LIVE = MEDIA / "live"
 FPS = 24
 DURATION = 4
@@ -28,52 +27,6 @@ WORLDS = [
     ("relic-scout", "relic-scout-ai.png", "fireflies"),
     ("storm-trooper", "storm-trooper-ai.png", "alarm"),
 ]
-
-
-def font(size):
-    return ImageFont.truetype(
-        "/System/Library/Fonts/Supplemental/Arial Bold.ttf", size
-    )
-
-
-def paste_sprite(canvas, path, xy, scale, opacity=255):
-    sprite = Image.open(path).convert("RGBA")
-    sprite = sprite.resize(
-        (sprite.width * scale, sprite.height * scale), Image.Resampling.NEAREST
-    )
-    if opacity != 255:
-        sprite.putalpha(sprite.getchannel("A").point(lambda value: value * opacity // 255))
-    glow = Image.new("RGBA", sprite.size)
-    glow.putalpha(sprite.getchannel("A").filter(ImageFilter.GaussianBlur(12)))
-    canvas.alpha_composite(glow, (xy[0] + 5, xy[1] + 7))
-    canvas.alpha_composite(sprite, xy)
-
-
-def compose_storm_trooper():
-    base = Image.open(MEDIA / "storm-trooper-background.png").convert("RGBA")
-    draw = ImageDraw.Draw(base)
-    draw.text(
-        (90, 72),
-        "STORM TROOPER",
-        font=font(88),
-        fill="white",
-        stroke_width=6,
-        stroke_fill="black",
-    )
-    draw.text(
-        (98, 180),
-        "ALERT  •  PATROL  •  REST",
-        font=font(30),
-        fill=(245, 82, 82),
-        stroke_width=3,
-        stroke_fill="black",
-    )
-    frames = CHARACTERS / "WKStudioStormTrooper/Frames"
-    paste_sprite(base, frames / "Idle/Idle_001.png", (875, 260), 4)
-    paste_sprite(base, frames / "Walk/Walk_005.png", (575, 455), 2, 155)
-    paste_sprite(base, frames / "Attack/Attack_004.png", (315, 470), 2, 155)
-    paste_sprite(base, frames / "Dead/Dead_010.png", (1230, 535), 2, 155)
-    base.convert("RGB").save(MEDIA / "storm-trooper-ai.png", optimize=True)
 
 
 def cover_crop(image, frame):
@@ -230,7 +183,6 @@ def combine(outputs):
 
 def main():
     LIVE.mkdir(parents=True, exist_ok=True)
-    compose_storm_trooper()
     outputs = [render_world(*world) for world in WORLDS]
     combine(outputs)
 
