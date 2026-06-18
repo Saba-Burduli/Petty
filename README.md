@@ -4,14 +4,15 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 
 ## Demo
 
-![Petty character world showcase](docs/media/petty-character-worlds.gif)
+![Petty live AI character worlds](docs/media/ai-character-worlds/petty-all-character-worlds-live.gif)
 
-- [X-ready Storm Trooper MP4 showcase](docs/media/petty-x-stormtrooper-showcase.mp4)
-- [X-ready Storm Trooper GIF showcase](docs/media/petty-x-stormtrooper-showcase.gif)
-- [X-ready edited MP4 demo with character transitions](docs/media/petty-x-demo.mp4)
-- [Full-size MP4 asset transition demo](docs/media/petty-assets-demo.mp4)
+- [Full nine-character live-world MP4](docs/media/ai-character-worlds/petty-all-character-worlds-live.mp4)
 - [Raw live desktop recording](docs/media/petty-live-recording.mov)
 - [Live desktop screenshot](docs/media/petty-live-desktop.png)
+
+The showcase includes character-specific moving environments: snow and aurora,
+speed streaks, rooftop steam, rain, neon light sweeps, cherry petals, forge
+embers, fireflies, and starship alarm lighting.
 
 ## Character Assets
 
@@ -24,6 +25,10 @@ The bundled store now includes sourced character packs from open game projects, 
 - Storm Trooper from W_K_Studio's CC0 itch.io sprite pack.
 - Redcap Runner from an OpenGameArt/GameArt2D CC0 pack.
 - Cyberpunk Ninja from Pincholinco's CC BY 4.0 itch.io sprite pack.
+- Graveyard Intern from an OpenGameArt/GameArt2D CC0 pack.
+- Ironkeep Sentinel from a GameArt2D CC0 pack.
+- Shadowbyte Kunoichi from a GameArt2D CC0 pack.
+- Relic Scout from a GameArt2D CC0 pack.
 
 It also includes the earlier GameArt2D/OpenGameArt packs that remain in the store:
 
