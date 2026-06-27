@@ -5,6 +5,14 @@ Petty is a native macOS prototype for a tiny animated desktop companion. The cur
 The standalone website is maintained in
 [Petty-Landing](https://github.com/Saba-Burduli/Petty-Landing).
 
+## Trailer
+
+[![Petty 30-second trailer](docs/media/trailers/petty-launch-trailer-preview.gif)](docs/media/trailers/petty-launch-trailer-30s.mp4)
+
+- [Landscape trailer](docs/media/trailers/petty-launch-trailer-30s.mp4)
+- [Square trailer](docs/media/trailers/petty-launch-trailer-square.mp4)
+- [Vertical trailer](docs/media/trailers/petty-launch-trailer-vertical.mp4)
+
 ## Character Assets
 
 ![Petty asset lineup](docs/media/petty-assets-lineup.png)
