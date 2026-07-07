@@ -7,31 +7,31 @@ The standalone website is maintained in
 
 ## Desktop Showcase
 
-Petty keeps its controls in a compact Mac-native window while the selected companion lives directly on the desktop.
+Choose a companion, place it anywhere on the desktop, resize it, and access visibility or position controls from the Mac menu bar.
 
-![Petty Character Store with Redcap Runner active on the macOS desktop](docs/media/showcase/petty-desktop-redcap.jpg)
+![Petty Character Store with Redcap Runner active on the desktop](docs/media/showcase/petty-cover-redcap-runner.jpg)
 
-<p align="center">
-  <img src="docs/media/showcase/petty-menu-controls.png" alt="Petty menu bar controls" width="54%">
-</p>
+![Petty menu bar controls](docs/media/showcase/petty-cover-menu-controls.jpg)
 
-<p align="center"><sub>Open the store, show or hide the companion, reset its position, and control always-on-top behavior from the menu bar.</sub></p>
+![Tux active as a Petty desktop companion](docs/media/showcase/petty-cover-tux.jpg)
 
-| Tux | Storm Trooper |
-| --- | --- |
-| ![Tux selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-tux.jpg) | ![Storm Trooper selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-storm-trooper.jpg) |
+![Surge active as a Petty desktop companion](docs/media/showcase/petty-cover-surge.jpg)
 
-| Shadowbyte Kunoichi | Relic Scout |
-| --- | --- |
-| ![Shadowbyte Kunoichi selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-kunoichi.jpg) | ![Relic Scout selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-relic-scout.jpg) |
+![Graveyard Intern active as a Petty desktop companion](docs/media/showcase/petty-cover-graveyard-intern.jpg)
+
+![Cyberpunk Ninja active as a Petty desktop companion](docs/media/showcase/petty-cover-cyberpunk-ninja.jpg)
+
+![Ironkeep Sentinel active as a Petty desktop companion](docs/media/showcase/petty-cover-ironkeep-sentinel.jpg)
+
+![Storm Trooper active as a Petty desktop companion](docs/media/showcase/petty-cover-storm-trooper.jpg)
+
+![Shadowbyte Kunoichi active as a Petty desktop companion](docs/media/showcase/petty-cover-shadowbyte-kunoichi.jpg)
+
+![Relic Scout active as a Petty desktop companion](docs/media/showcase/petty-cover-relic-scout.jpg)
 
 ## Trailer
 
 [![Petty 30-second trailer](docs/media/trailers/petty-launch-trailer-preview.gif)](docs/media/trailers/petty-launch-trailer-30s.mp4)
-
-- [Landscape trailer](docs/media/trailers/petty-launch-trailer-30s.mp4)
-- [Square trailer](docs/media/trailers/petty-launch-trailer-square.mp4)
-- [Vertical trailer](docs/media/trailers/petty-launch-trailer-vertical.mp4)
 
 ## Character Assets
 
