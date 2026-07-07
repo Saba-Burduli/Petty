@@ -24,6 +24,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         )
         settingsWindowController = settingsController
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(openSettings),
+            name: .openPettySettings,
+            object: nil
+        )
+
         menuBarController = MenuBarController(
             characterWindowController: windowController,
             settingsStore: settingsStore,
@@ -39,7 +46,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ notification: Notification) {
+        NotificationCenter.default.removeObserver(self)
         activityMonitor?.stop()
         characterWindowController?.saveCurrentPosition()
+    }
+
+    @objc private func openSettings() {
+        settingsWindowController?.show()
     }
 }

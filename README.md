@@ -2,6 +2,37 @@
 
 Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses sourced 2D character sprite assets with authored frame animations.
 
+The standalone website is maintained in
+[Petty-Landing](https://github.com/Saba-Burduli/Petty-Landing).
+
+## Desktop Showcase
+
+Petty keeps its controls in a compact Mac-native window while the selected companion lives directly on the desktop.
+
+![Petty Character Store with Redcap Runner active on the macOS desktop](docs/media/showcase/petty-desktop-redcap.jpg)
+
+<p align="center">
+  <img src="docs/media/showcase/petty-menu-controls.png" alt="Petty menu bar controls" width="54%">
+</p>
+
+<p align="center"><sub>Open the store, show or hide the companion, reset its position, and control always-on-top behavior from the menu bar.</sub></p>
+
+| Tux | Storm Trooper |
+| --- | --- |
+| ![Tux selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-tux.jpg) | ![Storm Trooper selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-storm-trooper.jpg) |
+
+| Shadowbyte Kunoichi | Relic Scout |
+| --- | --- |
+| ![Shadowbyte Kunoichi selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-kunoichi.jpg) | ![Relic Scout selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-relic-scout.jpg) |
+
+## Trailer
+
+[![Petty 30-second trailer](docs/media/trailers/petty-launch-trailer-preview.gif)](docs/media/trailers/petty-launch-trailer-30s.mp4)
+
+- [Landscape trailer](docs/media/trailers/petty-launch-trailer-30s.mp4)
+- [Square trailer](docs/media/trailers/petty-launch-trailer-square.mp4)
+- [Vertical trailer](docs/media/trailers/petty-launch-trailer-vertical.mp4)
+
 ## Character Assets
 
 ![Petty asset lineup](docs/media/petty-assets-lineup.png)
