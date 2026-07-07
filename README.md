@@ -7,31 +7,13 @@ The standalone website is maintained in
 
 ## Desktop Showcase
 
-Petty keeps its controls in a compact Mac-native window while the selected companion lives directly on the desktop.
+![Petty desktop companion showcase featuring the Character Store, menu bar controls, and five selectable characters](docs/media/showcase/petty-desktop-showcase.jpg)
 
-![Petty Character Store with Redcap Runner active on the macOS desktop](docs/media/showcase/petty-desktop-redcap.jpg)
-
-<p align="center">
-  <img src="docs/media/showcase/petty-menu-controls.png" alt="Petty menu bar controls" width="54%">
-</p>
-
-<p align="center"><sub>Open the store, show or hide the companion, reset its position, and control always-on-top behavior from the menu bar.</sub></p>
-
-| Tux | Storm Trooper |
-| --- | --- |
-| ![Tux selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-tux.jpg) | ![Storm Trooper selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-storm-trooper.jpg) |
-
-| Shadowbyte Kunoichi | Relic Scout |
-| --- | --- |
-| ![Shadowbyte Kunoichi selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-kunoichi.jpg) | ![Relic Scout selected in the Petty Character Store and visible on the desktop](docs/media/showcase/petty-desktop-relic-scout.jpg) |
+Choose a companion, place it anywhere on the desktop, resize it, and access visibility or position controls from the Mac menu bar.
 
 ## Trailer
 
 [![Petty 30-second trailer](docs/media/trailers/petty-launch-trailer-preview.gif)](docs/media/trailers/petty-launch-trailer-30s.mp4)
-
-- [Landscape trailer](docs/media/trailers/petty-launch-trailer-30s.mp4)
-- [Square trailer](docs/media/trailers/petty-launch-trailer-square.mp4)
-- [Vertical trailer](docs/media/trailers/petty-launch-trailer-vertical.mp4)
 
 ## Character Assets
 
