@@ -9,9 +9,9 @@ The standalone website is maintained in
 
 Choose a companion, place it anywhere on the desktop, resize it, and access visibility or position controls from the Mac menu bar.
 
-| Character Store | Menu Bar Controls |
+| Menu Bar Controls | Character Store |
 | --- | --- |
-| ![Petty Character Store with Redcap Runner active on the desktop](docs/media/showcase/petty-cover-redcap-runner.jpg) | ![Petty menu bar controls](docs/media/showcase/petty-cover-menu-controls.jpg) |
+| ![Petty menu bar controls](docs/media/showcase/petty-cover-menu-controls.jpg) | ![Petty Character Store with Redcap Runner active on the desktop](docs/media/showcase/petty-cover-redcap-runner.jpg) |
 
 | Tux | Surge |
 | --- | --- |
