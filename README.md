@@ -7,9 +7,27 @@ The standalone website is maintained in
 
 ## Desktop Showcase
 
-![Petty desktop companion showcase featuring the Character Store, menu bar controls, and five selectable characters](docs/media/showcase/petty-desktop-showcase.jpg)
-
 Choose a companion, place it anywhere on the desktop, resize it, and access visibility or position controls from the Mac menu bar.
+
+![Petty Character Store with Redcap Runner active on the desktop](docs/media/showcase/petty-cover-redcap-runner.jpg)
+
+![Petty menu bar controls](docs/media/showcase/petty-cover-menu-controls.jpg)
+
+![Tux active as a Petty desktop companion](docs/media/showcase/petty-cover-tux.jpg)
+
+![Surge active as a Petty desktop companion](docs/media/showcase/petty-cover-surge.jpg)
+
+![Graveyard Intern active as a Petty desktop companion](docs/media/showcase/petty-cover-graveyard-intern.jpg)
+
+![Cyberpunk Ninja active as a Petty desktop companion](docs/media/showcase/petty-cover-cyberpunk-ninja.jpg)
+
+![Ironkeep Sentinel active as a Petty desktop companion](docs/media/showcase/petty-cover-ironkeep-sentinel.jpg)
+
+![Storm Trooper active as a Petty desktop companion](docs/media/showcase/petty-cover-storm-trooper.jpg)
+
+![Shadowbyte Kunoichi active as a Petty desktop companion](docs/media/showcase/petty-cover-shadowbyte-kunoichi.jpg)
+
+![Relic Scout active as a Petty desktop companion](docs/media/showcase/petty-cover-relic-scout.jpg)
 
 ## Trailer
 
