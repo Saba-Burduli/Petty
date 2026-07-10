@@ -1,0 +1,63 @@
+name: Bug report
+description: Report reproducible incorrect behavior in Petty.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a Petty issue.
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: macOS 14.6
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Petty commit or branch
+      placeholder: dev at abc1234
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the actual and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Launch Petty
+        2. Select ...
+        3. Drag ...
+    validations:
+      required: true
+  - type: dropdown
+    id: character
+    attributes:
+      label: Does this affect a specific character?
+      options:
+        - No or unknown
+        - Yes
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or screenshots
+      description: Remove personal or sensitive information before attaching files.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: I did not include secrets or private data.
+          required: true
