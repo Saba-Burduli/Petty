@@ -1,9 +1,33 @@
 # Petty
 
-Petty is a native macOS prototype for a tiny animated desktop companion. The current prototype uses sourced 2D character sprite assets with authored frame animations.
+[![macOS build](https://github.com/Saba-Burduli/Petty/actions/workflows/build.yml/badge.svg)](https://github.com/Saba-Burduli/Petty/actions/workflows/build.yml)
+[![macOS 14+](https://img.shields.io/badge/macOS-14%2B-black)](https://www.apple.com/macos/)
+[![Swift 5](https://img.shields.io/badge/Swift-5-F05138?logo=swift&logoColor=white)](https://www.swift.org/)
+[![Code license: MIT](https://img.shields.io/badge/code%20license-MIT-2ea44f)](LICENSE)
+
+Petty is an open-source, native macOS desktop companion. It places animated 2D characters in a transparent floating window that reacts to activity, dragging, clicking, and idle time.
 
 The standalone website is maintained in
 [Petty-Landing](https://github.com/Saba-Burduli/Petty-Landing).
+
+> [!IMPORTANT]
+> Petty is an early-stage prototype. It is not currently distributed as a signed or notarized release. The source code is MIT-licensed, while bundled character assets retain their own upstream licenses. See [Third-Party Notices](THIRD_PARTY_NOTICES.md).
+
+## Requirements
+
+- macOS 14 Sonoma or newer.
+- Xcode with the macOS 14 SDK or newer.
+- Git for cloning the repository.
+
+## Quick Start
+
+```sh
+git clone https://github.com/Saba-Burduli/Petty.git
+cd Petty
+./script/build_and_run.sh
+```
+
+The first build resolves the pinned Rive runtime package through Swift Package Manager. You can also open `Petty/Petty.xcodeproj`, select the `Petty` scheme, and run the app from Xcode.
 
 ## Desktop Showcase
 
@@ -59,7 +83,7 @@ It also includes the earlier GameArt2D/OpenGameArt packs that remain in the stor
 | --- | --- |
 | ![Shadowbyte Kunoichi asset states](docs/media/petty-asset-ninja-girl.png) | ![Relic Scout asset states](docs/media/petty-asset-adventurer.png) |
 
-## Current Prototype Features
+## Features
 
 - Transparent, borderless character window.
 - Floating always-on-top mode.
@@ -73,21 +97,15 @@ It also includes the earlier GameArt2D/OpenGameArt packs that remain in the stor
 - Basic states: idle, active, bored, and dragging.
 - Privacy-safe activity detection using system idle time plus keyboard/pointer event timing.
 
-## How To Run Locally
+## Architecture
 
-Open the project in Xcode:
+- SwiftUI provides the settings interface and character rendering.
+- AppKit manages the transparent borderless window, menu bar controls, desktop placement, and input behavior.
+- Character packs are discovered from per-character `manifest.json` files.
+- `UserDefaults` stores local character selection, position, size, and visibility preferences.
+- Privacy-safe activity detection uses system idle timing and does not inspect typed text or app content.
 
-```sh
-open Petty/Petty.xcodeproj
-```
-
-Then select the `Petty` scheme and run the macOS app.
-
-Or use the project run script:
-
-```sh
-./script/build_and_run.sh
-```
+See [Project Plan](docs/PROJECT_PLAN.md) for the component map and current technical scope.
 
 ## Adding Character Packs
 
@@ -96,6 +114,8 @@ Petty now discovers bundled character folders from `Petty/Petty/Resources/Charac
 See [docs/ASSET_PACKS.md](docs/ASSET_PACKS.md) for the expected folder layout and manifest schema.
 
 See [docs/ASSET_RESEARCH.md](docs/ASSET_RESEARCH.md) for the official-source asset research notes.
+
+New bundled assets must have a clear redistribution license, complete attribution, and authored animation frames. Do not submit copied commercial game, film, or anime characters.
 
 ## Current Limitations
 
@@ -112,3 +132,13 @@ See [docs/ASSET_RESEARCH.md](docs/ASSET_RESEARCH.md) for the official-source ass
 - Add smarter visibility modes such as Desktop Only, Focus Mode, and Pause During Fullscreen.
 - Add a character data model for future collectible packs.
 - Package the app for easier local testing.
+
+## Contributing
+
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request. Development changes target `dev`; reviewed releases are merged into `master`.
+
+Please use [GitHub Issues](https://github.com/Saba-Burduli/Petty/issues) for reproducible bugs and focused feature proposals. Security reports should follow [SECURITY.md](SECURITY.md).
+
+## License
+
+Petty's original source code is available under the [MIT License](LICENSE). Bundled characters, media, and third-party dependencies are not relicensed by Petty; their individual terms and source links are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and each character pack's `ATTRIBUTION.md`.
