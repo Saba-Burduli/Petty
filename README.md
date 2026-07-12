@@ -7,9 +7,6 @@
 
 Petty is an open-source, native macOS desktop companion. It places animated 2D characters in a transparent floating window that reacts to activity, dragging, clicking, and idle time.
 
-The standalone website is maintained in
-[Petty-Landing](https://github.com/Saba-Burduli/Petty-Landing).
-
 > [!IMPORTANT]
 > Petty is an early-stage prototype. It is not currently distributed as a signed or notarized release. The source code is MIT-licensed, while bundled character assets retain their own upstream licenses. See [Third-Party Notices](THIRD_PARTY_NOTICES.md).
 
