@@ -2,6 +2,7 @@ import AppKit
 import Combine
 import SwiftUI
 
+@MainActor
 final class CharacterWindowController: NSObject {
     private let stateManager: CharacterStateManager
     private let settingsStore: SettingsStore
@@ -71,20 +72,18 @@ final class CharacterWindowController: NSObject {
         let view = DraggableHostingView(
             rootView: CharacterView(stateManager: stateManager, settingsStore: settingsStore),
             onDragBegan: { [weak self] in
-                Task { @MainActor in self?.stateManager.beginDragging() }
+                self?.stateManager.beginDragging()
             },
             onDragChanged: { [weak self] pointsPerSecond in
-                Task { @MainActor in self?.stateManager.updateDragSpeed(pointsPerSecond: pointsPerSecond) }
+                self?.stateManager.updateDragSpeed(pointsPerSecond: pointsPerSecond)
             },
             onDragEnded: { [weak self] in
-                Task { @MainActor in
-                    self?.constrainToVisibleScreen()
-                    self?.saveCurrentPosition()
-                    self?.stateManager.endDragging()
-                }
+                self?.constrainToVisibleScreen()
+                self?.saveCurrentPosition()
+                self?.stateManager.endDragging()
             },
             onClick: { [weak self] in
-                Task { @MainActor in self?.stateManager.poke() }
+                self?.stateManager.poke()
             }
         )
         view.frame = NSRect(origin: .zero, size: panelSize)
@@ -176,6 +175,7 @@ final class CharacterWindowController: NSObject {
     }
 }
 
+@MainActor
 private final class DraggableHostingView<Content: View>: NSHostingView<Content> {
     private let onDragBegan: () -> Void
     private let onDragChanged: (CGFloat) -> Void

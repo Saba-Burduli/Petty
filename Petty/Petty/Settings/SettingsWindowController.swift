@@ -1,6 +1,7 @@
 import AppKit
 import SwiftUI
 
+@MainActor
 final class SettingsWindowController {
     private let settingsStore: SettingsStore
     private weak var characterWindowController: CharacterWindowController?

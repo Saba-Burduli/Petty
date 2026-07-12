@@ -1,5 +1,6 @@
 import AppKit
 
+@MainActor
 final class MenuBarController: NSObject {
     private let statusItem: NSStatusItem
     private weak var characterWindowController: CharacterWindowController?
