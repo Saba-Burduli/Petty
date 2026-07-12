@@ -50,10 +50,6 @@ Choose a companion, place it anywhere on the desktop, resize it, and access visi
 | --- | --- |
 | ![Shadowbyte Kunoichi active as a Petty desktop companion](docs/media/showcase/petty-cover-shadowbyte-kunoichi.jpg) | ![Relic Scout active as a Petty desktop companion](docs/media/showcase/petty-cover-relic-scout.jpg) |
 
-## Trailer
-
-[![Petty 30-second trailer](docs/media/trailers/petty-launch-trailer-preview.gif)](docs/media/trailers/petty-launch-trailer-30s.mp4)
-
 ## Character Assets
 
 ![Petty asset lineup](docs/media/petty-assets-lineup.png)
