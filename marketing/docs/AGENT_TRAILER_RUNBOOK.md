@@ -80,7 +80,7 @@ marketing/trailer/
     petty-launch-trailer-30s.mp4
     petty-launch-trailer-square.mp4
     petty-launch-trailer-vertical.mp4
-    petty-launch-trailer-30s.gif
+    petty-launch-trailer-preview.gif
 ```
 
 Never overwrite `docs/media/trailers/` until every v2 validation check passes.
@@ -246,7 +246,7 @@ placeholder, screenshot, generated scene, or old export.
 | `petty-launch-trailer-30s.mp4` | 1920x1080 | 30 | README, X landscape, Reddit, YouTube |
 | `petty-launch-trailer-square.mp4` | 1080x1080 | 30 | X square |
 | `petty-launch-trailer-vertical.mp4` | 1080x1920 | 30 | Reels, TikTok, Shorts |
-| `petty-launch-trailer-30s.gif` | 720x405 | 12 | README preview, under 15 MB |
+| `petty-launch-trailer-preview.gif` | 720x405 | 12 | README preview, under 15 MB |
 
 ## Technical Validation
 
@@ -259,7 +259,7 @@ for file in marketing/trailer/exports-v2/*.mp4; do
     -of default=noprint_wrappers=1 "$file"
 done
 
-stat -f '%z %N' marketing/trailer/exports-v2/petty-launch-trailer-30s.gif
+stat -f '%z %N' marketing/trailer/exports-v2/petty-launch-trailer-preview.gif
 ```
 
 Every export must satisfy:
@@ -300,8 +300,8 @@ cp marketing/trailer/exports-v2/petty-launch-trailer-square.mp4 \
   docs/media/trailers/petty-launch-trailer-square.mp4
 cp marketing/trailer/exports-v2/petty-launch-trailer-vertical.mp4 \
   docs/media/trailers/petty-launch-trailer-vertical.mp4
-cp marketing/trailer/exports-v2/petty-launch-trailer-30s.gif \
-  docs/media/trailers/petty-launch-trailer-30s.gif
+cp marketing/trailer/exports-v2/petty-launch-trailer-preview.gif \
+  docs/media/trailers/petty-launch-trailer-preview.gif
 ```
 
 Keeping the filenames unchanged preserves current README links.
